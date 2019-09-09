@@ -5,6 +5,7 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import config from '../config.json';
 import Context from '../contextStore/Context';
 import axios from 'axios';
+import Loading from './Loading';
 const Home = () => {
   const { state, dispatch } = useContext(Context);
   const { isAuth } = state;
@@ -101,6 +102,7 @@ const Home = () => {
   };
   return (
     <>
+    <Loading title="home"/>
       <div className='container'>
         <div className='Menu'>
           <div className='title-main'>

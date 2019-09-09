@@ -5,7 +5,11 @@ import {
 
 const Context = createContext({
     user: null,
-    isAuth: false
+    isAuth: false,
+    eventCategoreis: [],
+    errors: [],
+    token: localStorage.getItem('TPToken'),
+    onBoard: false
 })
 
 export default Context;

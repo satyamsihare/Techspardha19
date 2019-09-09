@@ -1,7 +1,69 @@
-* {
+.overlay {
+  animation: grain 0.8s steps(10) infinite;
+  background-image: url('./grains.png');
+  height: 300%;
+  left: -50%;
+  opacity: 0.3;
+  position: fixed;
+  top: -110%;
+  width: 300%;
+}
+
+@keyframes grain {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-5%, -10%);
+  }
+
+  20% {
+    transform: translate(-15%, 5%);
+  }
+
+  30% {
+    transform: translate(7%, -25%);
+  }
+
+  40% {
+    transform: translate(-5%, 25%);
+  }
+
+  50% {
+    transform: translate(-15%, 10%);
+  }
+
+  60% {
+    transform: translate(15%, 0%);
+  }
+
+  70% {
+    transform: translate(0%, 15%);
+  }
+
+  80% {
+    transform: translate(3%, 35%);
+  }
+
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+body,
+html {
   margin: 0;
   padding: 0;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+
 
 body {
   background: #0c0c0c;
@@ -16,7 +78,6 @@ body {
   width: 81%;
   margin: auto;
   margin-top: 9%;
-  z-index: 0;
 }
 
 .title-main {
@@ -72,6 +133,68 @@ a {
   cursor: pointer;
 }
 
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+
+div {
+  box-sizing: border-box;
+}
+
+.horizontal-scroll-wrapper {
+  display: block;
+  width: 500px;
+  height: 1300px;
+  margin: 0;
+  padding-top: 1px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-transform: rotate(-90deg) translateY(-250px);
+  transform: rotate(-90deg) translateY(-500px);
+  -webkit-transform-origin: right top;
+  transform-origin: right top;
+  -webkit-overflow-scrolling: touch;
+
+}
+
+
+
+.horizontal-scroll-wrapper>div {
+  display: block;
+  padding: 5px;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transform-origin: right top;
+  transform-origin: right top;
+}
+
+.squares {
+  padding: 420px 0 0 0;
+}
+
+.squares>div {
+  width: 450px;
+  height: 450px;
+  margin: 50px 30px;
+  border: 1px solid white;
+}
+
+.yo::-webkit-scrollbar {
+  width: 0 !important;
+  background: transparent !important;
+  display: none;
+}
+
+.alerts {
+  color: #fff;
+  padding: 5px;
+  width: 100%;
+  margin-top: 15;
+  padding-left: 30px;
+}
+
 @media (max-width:800px) {
   .title-main {
     margin-top: 100px;
@@ -81,5 +204,10 @@ a {
 
   .Menu>ul>li {
     font-size: 1rem;
+  }
+
+  .loading-text {
+    font-size: 12px;
+    margin: 1px;
   }
 }

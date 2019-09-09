@@ -4,28 +4,32 @@ import reducer from './reducers/rootReducer';
 import Home from './components/Home';
 import Loading from './components/Loading';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-import Events from './components/Events';
-import { createBrowserHistory } from 'history';
+import EventCategories from './components/EventCategories';
 import Error404 from './components/Error404';
 import Faqs from './components/Faqs';
 import Sponsors from './components/Sponsors';
-import Login from './components/Login';
 import Contact from './components/Contact';
+import Alert from './components/Alert';
 
 function App() {
   const initialState = useContext(Context);
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  console.log(state);
   return (
-    <Context.Provider value={{ state, dispatch }}>
+    <Context.Provider
+      value={{
+        state,
+        dispatch
+      }}
+    >
       <Loading />
+      <Alert />
       <BrowserRouter>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route path='/events' component={Events} />
+          <Route path='/events' component={EventCategories} />
           <Route path='/faqs' component={Faqs} />
           <Route path='/sponsors' component={Sponsors} />
-          <Route path='/login' component={Login} />
           <Route path='/contact' component={Contact} />
           <Route component={Error404} />
         </Switch>

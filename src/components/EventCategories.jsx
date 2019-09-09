@@ -1,10 +1,12 @@
 import React from 'react';
 import Back from './Back';
+import Loading from './Loading';
 import EventsList from './EventsList';
 
 const EventCategories = props => {
   return (
     <>
+    <Loading title="events"/>
       <div className='c-container'>
         <Back history={props} />
         <h1>Event Categories</h1>

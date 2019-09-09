@@ -22,7 +22,7 @@ function App() {
         dispatch
       }}
     >
-      <Loading />
+
       <Alert />
       <BrowserRouter>
         <Switch>

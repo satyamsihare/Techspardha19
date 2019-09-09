@@ -1,25 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext, useReducer } from 'react';
+import Context from './contextStore/Context';
+import reducer from './reducers/rootReducer';
+import Home from './components/Home';
+import Loading from './components/Loading';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import EventCategories from './components/EventCategories';
+import Error404 from './components/Error404';
+import Faqs from './components/Faqs';
+import Sponsors from './components/Sponsors';
+import Contact from './components/Contact';
+import Alert from './components/Alert';
 
 function App() {
+  const initialState = useContext(Context);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  console.log(state);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider
+      value={{
+        state,
+        dispatch
+      }}
+    >
+      <Loading />
+      <Alert />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/events' component={EventCategories} />
+          <Route path='/faqs' component={Faqs} />
+          <Route path='/sponsors' component={Sponsors} />
+          <Route path='/contact' component={Contact} />
+          <Route component={Error404} />
+        </Switch>
+      </BrowserRouter>
+    </Context.Provider>
   );
 }
 

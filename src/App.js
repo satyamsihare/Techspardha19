@@ -10,31 +10,40 @@ import Faqs from './components/Faqs';
 import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
 import Alert from './components/Alert';
+import Grains from './components//Grains';
 
 function App() {
   const initialState = useContext(Context);
   const [state, dispatch] = useReducer(reducer, initialState);
   console.log(state);
-  return (
+  return (<>
+
     <Context.Provider
       value={{
         state,
         dispatch
       }}
     >
-      <Loading />
+    <Grains />
       <Alert />
       <BrowserRouter>
+
         <Switch>
+
           <Route exact path='/' component={Home} />
           <Route path='/events' component={EventCategories} />
           <Route path='/faqs' component={Faqs} />
           <Route path='/sponsors' component={Sponsors} />
           <Route path='/contact' component={Contact} />
           <Route component={Error404} />
+
         </Switch>
+
       </BrowserRouter>
+
     </Context.Provider>
+
+</>
   );
 }
 

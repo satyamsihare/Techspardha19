@@ -74,6 +74,7 @@ body {
 }
 
 .container {
+  position:relative;
   height: 100vh;
   width: 81%;
   margin: auto;
@@ -118,6 +119,7 @@ a {
 }
 
 .c-container {
+  position: relative;
   height: 100vh;
   width: 81%;
   margin: auto;

@@ -1,7 +1,8 @@
 import React, { useEffect, useContext, useState } from 'react';
 import Context from '../contextStore/Context';
-
+import Loading from './Loading';
 import Back from './Back';
+
 import axios from 'axios';
 
 const Contact = props => {
@@ -37,12 +38,16 @@ const Contact = props => {
   }, []);
 
   console.log(contactDetails);
+
   return (
+    <>
+    <Loading title="contact"/>
     <div className='c-container'>
       <Back history={props} />
       <h1>/contact</h1>
       <p className='devText'>Developed by Technobyte</p>
     </div>
+    </>
   );
 };
 

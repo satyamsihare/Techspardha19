@@ -6,7 +6,6 @@ import config from '../config.json';
 import Context from '../contextStore/Context';
 import axios from 'axios';
 import Loading from './Loading';
-import Grains from './Grains';
 const Home = () => {
   const { state, dispatch } = useContext(Context);
   const { isAuth } = state;
@@ -24,13 +23,13 @@ const Home = () => {
         ...obfuscate,
         obs: false
       });
-    }, 200);
+    }, 100);
     setTimeout(() => {
       setState({
         ...istate,
         check: false
       });
-    }, 3000);
+    }, 2000);
 
     return function cleanup() {
       abortController.abort();
@@ -48,7 +47,7 @@ const Home = () => {
   const homeList = list.map((item, index) => (
     <li key={index}>
       <Link to={item}>
-        <Baffle speed={150} obfuscate={obfuscate.obs} revealDelay={400}>
+        <Baffle speed={150} obfuscate={obfuscate.obs}>
           {item}
         </Baffle>
       </Link>
@@ -75,15 +74,6 @@ const Home = () => {
         type: 'USER_LOGIN_SUCCESS',
         payload: res.data
       });
-      dispatch({
-        type: 'ADD_ERROR',
-        payload: { msg: 'user auth success.' }
-      });
-      setTimeout(() => {
-        dispatch({
-          type: 'REMOVE_ERRORS'
-        });
-      }, 3000);
     } catch (error) {
       dispatch({
         type: 'ADD_ERROR',
@@ -116,8 +106,7 @@ const Home = () => {
   };
   return (
     <>
-
-    <Loading title="home"/>
+      <Loading title='home' />
       <div className='container'>
         <div className='Menu'>
           <div className='title-main'>

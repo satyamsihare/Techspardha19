@@ -74,7 +74,7 @@ body {
 }
 
 .container {
-  position:relative;
+  position: relative;
   height: 75vh;
   width: 81%;
   margin: auto;
@@ -116,7 +116,7 @@ a {
   color: white;
   font-size: 13px;
   position: fixed;
-  bottom:1%;
+  bottom: 1%;
   right: 4%;
 }
 
@@ -236,7 +236,8 @@ button {
   list-style: none;
 }
 
-.user-content>ul {
+.user-content>ul,
+.contact-section>ul {
   list-style: none;
   padding: 0;
 }
@@ -252,27 +253,43 @@ button {
   font-size: 1rem;
 }
 
+
+.Menu>ul>li,
+.contact-section>ul>li {
+  font-size: 1rem;
+
+}
+
+.loading-text {
+  font-size: 12px;
+  margin: 1px;
+}
+
+
+.about {
+  font-size: 80%;
+}
+
+.hide-overflow {
+  overflow: hidden;
+}
+
+.cnt-item {
+  padding: 10px 0;
+}
+
+.contact-img {
+  width: 40px;
+  height: 40px;
+  filter: grayscale(100%);
+}
+
+
+
 @media (max-width:800px) {
   .title-main {
     margin-top: 100px;
     font-size: 6vw;
     letter-spacing: 5px;
   }
-}
-  .Menu>ul>li {
-    font-size: 1rem;
-
-
-  .loading-text {
-    font-size: 12px;
-    margin: 1px;
-  }
-}
-
-.about{
-  font-size: 80%;
-}
-
-.hide-overflow{
-  overflow: hidden;
 }

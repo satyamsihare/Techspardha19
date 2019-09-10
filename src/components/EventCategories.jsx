@@ -7,7 +7,7 @@ const EventCategories = props => {
     <>
       <div className='c-container'>
         <Back history={props} />
-        <h1>Event Categories</h1>
+        <h1>/event_categories</h1>
         <EventsList />
         <p className='devText'>Developed by Technobyte</p>
       </div>

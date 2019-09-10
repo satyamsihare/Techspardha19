@@ -5,7 +5,7 @@ const Error404 = props => {
       <p className='back' onClick={() => props.history.push('/')}>
         /
       </p>
-      <h1>Error 404</h1>
+      <h1>error 404</h1>
       <p className='devText'>Developed by Technobyte</p>
     </div>
   );

@@ -1,13 +1,13 @@
 import React from 'react';
 import Back from './Back';
-const Faqs = props => {
+const About = props => {
   return (
     <div className='c-container'>
       <Back history={props} />
-      <h1>/faqs</h1>
+      <h1>/about</h1>
       <p className='devText'>Developed by Technobyte</p>
     </div>
   );
 };
 
-export default Faqs;
+export default About;

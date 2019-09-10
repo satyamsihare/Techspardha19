@@ -13,14 +13,28 @@ const Home = () => {
   const [obfuscate, setObfuscate] = useState({
     obs: true
   });
-
+  const [istate, setState] = useState({
+    check: true
+  });
   useEffect(() => {
+    const abortController = new AbortController();
+
     setTimeout(() => {
       setObfuscate({
         ...obfuscate,
         obs: false
       });
     }, 200);
+    setTimeout(() => {
+      setState({
+        ...istate,
+        check: false
+      });
+    }, 3000);
+
+    return function cleanup() {
+      abortController.abort();
+    };
   }, []);
 
   const list = [
@@ -57,7 +71,6 @@ const Home = () => {
         config
       );
 
-      console.log(res.data);
       dispatch({
         type: 'USER_LOGIN_SUCCESS',
         payload: res.data
@@ -112,14 +125,19 @@ const Home = () => {
               TECHSPARDHA/2019
             </Baffle>
           </div>
-
+          <ul>{homeList}</ul>
+        </div>
+        <br />
+        <div className='user-content'>
+          {istate.check ? <p>checking for auth status...</p> : null}
           <ul>
-
-            {homeList}
+            {state.user && <li>{'> sudo/current_user'}</li>}
+            {state.user && <li>{state.user.name}</li>}
+            {state.user && (
+              <img className='l-user' src={state.user.picture} alt='user-img' />
+            )}
             {isAuth ? (
-
-              <li>
-
+              <li className='pointer'>
                 <GoogleLogout
                   clientId={config.GIDKEY}
                   render={renderProps => (
@@ -135,7 +153,7 @@ const Home = () => {
                 />
               </li>
             ) : (
-              <li>
+              <li className='pointer'>
                 <GoogleLogin
                   clientId={config.GIDKEY}
                   render={renderProps => (

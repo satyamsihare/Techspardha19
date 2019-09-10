@@ -70,15 +70,16 @@ body {
   font-family: 'Droid Sans Mono';
   font-weight: 100;
   color: white;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .container {
   position:relative;
-  height: 100vh;
+  height: 75vh;
   width: 81%;
   margin: auto;
   margin-top: 9%;
+  /* overflow: hidden; */
 }
 
 .title-main {
@@ -112,9 +113,10 @@ a {
 }
 
 .devText {
+  color: white;
   font-size: 13px;
-  position: absolute;
-  bottom: 1%;
+  position: fixed;
+  bottom:1%;
   right: 4%;
 }
 
@@ -256,13 +258,21 @@ button {
     font-size: 6vw;
     letter-spacing: 5px;
   }
-
+}
   .Menu>ul>li {
     font-size: 1rem;
-  }
+
 
   .loading-text {
     font-size: 12px;
     margin: 1px;
   }
+}
+
+.about{
+  font-size: 80%;
+}
+
+.hide-overflow{
+  overflow: hidden;
 }

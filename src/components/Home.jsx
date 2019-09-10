@@ -115,7 +115,7 @@ const Home = () => {
     }, 3000);
   };
   return (
-    <>
+    <div className="hide-overflow">
 
     <Loading title="home"/>
       <div className='container'>
@@ -174,7 +174,7 @@ const Home = () => {
         </div>
         <p className='devText'>Developed by Technobyte</p>
       </div>
-    </>
+    </div>
   );
 };
 

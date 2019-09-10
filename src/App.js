@@ -10,6 +10,10 @@ import Faqs from './components/Faqs';
 import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
 import Alert from './components/Alert';
+import Auth from './components/Auth';
+import Query from './components/Query';
+import About from './components/About';
+
 import Grains from './components//Grains';
 
 function App() {
@@ -32,7 +36,10 @@ function App() {
 
           <Route exact path='/' component={Home} />
           <Route path='/events' component={EventCategories} />
+          <Route path='/about' component={About} />
           <Route path='/faqs' component={Faqs} />
+          <Route path='/auth' component={Auth} />
+          <Route path='/ask_queries' component={Query} />
           <Route path='/sponsors' component={Sponsors} />
           <Route path='/contact' component={Contact} />
           <Route component={Error404} />

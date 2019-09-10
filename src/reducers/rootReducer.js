@@ -40,6 +40,7 @@ export default function reducer(state, action) {
                                     onBoard: payload.onBoard,
                                     user
                             }
+
                             default:
                                 return state;
     }

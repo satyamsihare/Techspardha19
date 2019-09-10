@@ -6,6 +6,7 @@ import config from '../config.json';
 import Context from '../contextStore/Context';
 import axios from 'axios';
 import Loading from './Loading';
+import Grains from './Grains';
 const Home = () => {
   const { state, dispatch } = useContext(Context);
   const { isAuth } = state;
@@ -102,6 +103,7 @@ const Home = () => {
   };
   return (
     <>
+
     <Loading title="home"/>
       <div className='container'>
         <div className='Menu'>
@@ -110,10 +112,14 @@ const Home = () => {
               TECHSPARDHA/2019
             </Baffle>
           </div>
+
           <ul>
+
             {homeList}
             {isAuth ? (
+
               <li>
+
                 <GoogleLogout
                   clientId={config.GIDKEY}
                   render={renderProps => (

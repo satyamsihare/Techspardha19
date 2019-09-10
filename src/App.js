@@ -14,6 +14,7 @@ import Query from './components/Query';
 import About from './components/About';
 
 import Grains from './components//Grains';
+import ContactDetails from './components/ContactDetails';
 
 function App() {
   const initialState = useContext(Context);
@@ -37,6 +38,7 @@ function App() {
             <Route path='/faqs' component={Faqs} />
             <Route path='/auth' component={Auth} />
             <Route path='/ask_queries' component={Query} />
+            <Route path='/contact/:section' component={ContactDetails} />
             <Route path='/sponsors' component={Sponsors} />
             <Route path='/contact' component={Contact} />
             <Route component={Error404} />

@@ -7,7 +7,11 @@ const Loading = props => {
   const [text, setState2] = useState('/' + s + ' Loading ...');
   // let text="Loading /home ...";
   setTimeout(() => {
+    const abortController = new AbortController();
     frame();
+    return function cleanup() {
+      abortController.abort();
+    };
   }, 10);
   var flag = 0;
   function frame() {

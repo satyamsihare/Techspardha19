@@ -5,15 +5,15 @@ import EventsList from './EventsList';
 
 const EventCategories = props => {
   return (
-    <>
+    <div className="hide-overflow">
     <Loading title="events"/>
       <div className='c-container'>
         <Back history={props} />
         <h1>/event_categories</h1>
         <EventsList />
-        <p className='devText'>Developed by Technobyte</p>
+      
       </div>
-    </>
+    </div>
   );
 };
 

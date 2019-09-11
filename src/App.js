@@ -5,7 +5,7 @@ import Home from './components/Home';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import EventCategories from './components/EventCategories';
 import Error404 from './components/Error404';
-import Faqs from './components/Faqs';
+import Devs from './components/Dev';
 import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
 import Alert from './components/Alert';
@@ -35,7 +35,7 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route path='/events' component={EventCategories} />
             <Route path='/about' component={About} />
-            <Route path='/faqs' component={Faqs} />
+            <Route path='/devs' component={Devs} />
             <Route path='/auth' component={Auth} />
             <Route path='/ask_queries' component={Query} />
             <Route path='/contact/:section' component={ContactDetails} />

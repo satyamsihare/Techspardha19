@@ -6,6 +6,7 @@ import config from '../config.json';
 import Context from '../contextStore/Context';
 import axios from 'axios';
 import Loading from './Loading';
+import LinesRain from './LinesRain.jsx';
 const Home = () => {
   const { state, dispatch } = useContext(Context);
   const { isAuth } = state;
@@ -41,7 +42,7 @@ const Home = () => {
     '/sponsors',
     '/ask_queries',
     '/contact',
-    '/dev'
+    '/devs'
   ];
   const homeList = list.map((item, index) => (
     <li key={index}>
@@ -106,6 +107,7 @@ const Home = () => {
   return (
     <>
       <Loading title='home' />
+      <LinesRain />
       <div className='container'>
         <div className='Menu'>
           <div className='title-main'>

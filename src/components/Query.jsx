@@ -7,6 +7,7 @@ import Loading from './Loading';
 import config from '../config.json';
 import ReCAPTCHA from 'react-google-recaptcha';
 const Query = props => {
+  const [Captcha, setCaptcha] = useState(false);
   const { state, dispatch } = useContext(Context);
   const [formData, setFormData] = useState({
     email: '',
@@ -22,6 +23,23 @@ const Query = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (Captcha) {
+      send(formData);
+      setFormData({
+        email: '',
+        text: ''
+      });
+    } else {
+      dispatch({
+        type: 'ADD_ERROR',
+        payload: { msg: 'Captcha Invalid' }
+      });
+      setTimeout(() => {
+        dispatch({
+          type: 'REMOVE_ERRORS'
+        });
+      }, 3000);
+    }
   };
 
   const send = async formData => {
@@ -59,12 +77,8 @@ const Query = props => {
       }, 3000);
     }
   };
-  const submit = () => {
-    send(formData);
-    setFormData({
-      email: '',
-      text: ''
-    });
+  const captcha = () => {
+    setCaptcha(true);
   };
   if (state.isAuth === false) return <Redirect to='/auth' />;
 
@@ -83,6 +97,7 @@ const Query = props => {
               onChange={handleChange}
               value={formData.email}
               name='email'
+              required='required'
               type='email'
             />
           </div>
@@ -92,6 +107,7 @@ const Query = props => {
             </div>
             <textarea
               rows='10'
+              required='required'
               cols='50'
               onChange={handleChange}
               name='text'
@@ -99,10 +115,8 @@ const Query = props => {
               type='text'
             />
           </div>
-
-          <button type='submit'>
-            <ReCAPTCHA sitekey={config.RKEY} theme={'dark'} onChange={submit} />
-          </button>
+          <ReCAPTCHA sitekey={config.RKEY} theme={'dark'} onChange={captcha} />
+          <button type='submit'>send</button>
         </form>
         <p className='devText'>Developed by Technobyte</p>
       </div>

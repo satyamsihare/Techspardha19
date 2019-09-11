@@ -82,6 +82,14 @@ body {
   margin-top: 9%;
   /* overflow: hidden; */
 }
+.container2 {
+  position: relative;
+  height: 75vh;
+  width: 81%;
+  margin: auto;
+  margin-top: 0%;
+  /* overflow: hidden; */
+}
 
 .title-main {
   letter-spacing: 9px;
@@ -198,13 +206,13 @@ button {
   display: none;
 }
 
-.alerts {
+/* .alerts {
   color: #fff;
   padding: 5px;
   width: 100%;
   margin-top: 15;
   padding-left: 30px;
-}
+} */
 
 .pointer {
   cursor: pointer;
@@ -347,4 +355,36 @@ svg {
   fill-rule: evenodd;
   clip-rule: evenodd;
   fill: rgb(146, 146, 146);
+}
+.move-user{
+  position: fixed;
+  top:10%;
+  right:5%;
+  height:100px;
+  width:300px;
+}
+.sudo{
+  position: relative;
+  text-align: right;
+  margin-top: -25%;
+  margin-right: 20%;
+}
+.user-img{
+  position: relative;
+  text-align: right;
+  margin-right: 0%;
+  margin-top: -5%;
+}
+.signin{
+  position: relative;
+  margin-top: 20%;
+  margin-right: -30%;
+}
+.p-signin{
+  text-align: right;
+  margin-left: 53%;
+}
+.p-logout{
+  margin-left: 70%;
+  /* cursor: pointer; */
 }

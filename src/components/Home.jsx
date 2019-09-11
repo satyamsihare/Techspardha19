@@ -23,7 +23,7 @@ const Home = () => {
         ...obfuscate,
         obs: false
       });
-    }, 100);
+    }, 300);
     setTimeout(() => {
       setState({
         ...istate,
@@ -35,14 +35,13 @@ const Home = () => {
       abortController.abort();
     };
   }, []);
-
   const list = [
     '/about',
     '/events',
     '/sponsors',
-    '/faqs',
     '/ask_queries',
-    '/contact'
+    '/contact',
+    '/dev'
   ];
   const homeList = list.map((item, index) => (
     <li key={index}>

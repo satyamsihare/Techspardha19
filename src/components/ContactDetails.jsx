@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useState } from 'react';
 import Context from '../contextStore/Context';
 import Loading from './Loading';
 import Back from './Back';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const ContactDetails = props => {
@@ -45,7 +44,7 @@ const ContactDetails = props => {
     secContacts[0].people.length > 0 ? (
       secContacts[0].people.map((ppl, index) => (
         <div key={index}>
-          <img class='contact-img' src={ppl.imageUrl} alt={ppl.name} />
+          <img className='contact-img' src={ppl.imageUrl} alt={ppl.name} />
           <p>{ppl.name}</p>
           <p>{ppl.phoneNo}</p>
         </div>

@@ -71,7 +71,7 @@ body {
   font-family: 'Droid Sans Mono';
   font-weight: 100;
   color: white;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .container {
@@ -187,9 +187,11 @@ div {
   margin: 50px 30px;
   border: 1px solid white;
 }
-button{
+
+button {
   cursor: pointer;
 }
+
 .yo::-webkit-scrollbar {
   width: 0 !important;
   background: transparent !important;
@@ -298,4 +300,51 @@ button {
     font-size: 6vw;
     letter-spacing: 5px;
   }
+
+  .container-l {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden !important;
+    background: transparent;
+  }
+}
+
+
+/* home line fall effect */
+.container-l {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden !important;
+  background: transparent;
+}
+
+svg {
+  position: absolute;
+  height: 100%;
+}
+
+.lines {
+  opacity: 0.05;
+}
+
+.line {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: rgb(58, 58, 58);
+}
+
+.lights {
+  opacity: 0.9;
+}
+
+.light {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: rgb(146, 146, 146);
 }

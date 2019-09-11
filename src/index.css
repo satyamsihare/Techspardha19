@@ -1,9 +1,10 @@
 .overlay {
-  animation: grain 1.6s steps(10) infinite;
+  animation: grain 1.5s steps(5) infinite;
   background-image: url('./grains.png');
   height: 300%;
   left: -50%;
-  opacity: 0.6;
+  opacity: 1;
+  z-index: -1;
   position: fixed;
   top: -110%;
   width: 300%;
@@ -101,6 +102,7 @@ body {
 .progressbar-progress {
   color: #333;
   background: #fff !important;
+  z-index: 1;
 }
 
 .loading-text {

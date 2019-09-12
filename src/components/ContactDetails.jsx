@@ -5,6 +5,7 @@ import Back from './Back';
 import axios from 'axios';
 
 const ContactDetails = props => {
+    // document.body.style.overflow = 'auto';
   const { dispatch } = useContext(Context);
   const [contactDetails, setContactDetails] = useState({
     contacts: []

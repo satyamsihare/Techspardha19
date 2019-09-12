@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Contact = props => {
+    document.body.style.overflow = 'auto';
   const { dispatch } = useContext(Context);
   const [contactDetails, setContactDetails] = useState({
     contacts: []

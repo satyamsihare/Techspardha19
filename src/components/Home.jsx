@@ -8,6 +8,8 @@ import axios from 'axios';
 import Loading from './Loading';
 import LinesRain from './LinesRain.jsx';
 const Home = () => {
+  // document.body.scroll = "yes";
+  document.body.style.overflow = 'hidden';
   const { state, dispatch } = useContext(Context);
   const { isAuth } = state;
   const [obfuscate, setObfuscate] = useState({

@@ -4,6 +4,8 @@ import Back from './Back';
 import Loading from './Loading';
 // import Typewriter from 'typewriter-effect';
 const About = props => {
+  document.body.scroll = "yes";
+  document.body.style.overflow = 'auto';
   return (
     <>
       <Loading title='about' />

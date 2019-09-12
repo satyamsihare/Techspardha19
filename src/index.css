@@ -1,9 +1,10 @@
 .overlay {
-  animation: grain 0.8s steps(10) infinite;
+  animation: grain 1.5s steps(5) infinite;
   background-image: url('./grains.png');
   height: 300%;
   left: -50%;
-  opacity: 0.3;
+  opacity: 1;
+  z-index: -1;
   position: fixed;
   top: -110%;
   width: 300%;
@@ -70,15 +71,24 @@ body {
   font-family: 'Droid Sans Mono';
   font-weight: 100;
   color: white;
-  overflow: hidden;
+  overflow:hidden;
 }
 
 .container {
-  position:relative;
-  height: 100vh;
+  position: relative;
+  height: 75vh;
   width: 81%;
   margin: auto;
   margin-top: 9%;
+  /* overflow: hidden; */
+}
+.container2 {
+  position: relative;
+  height: 75vh;
+  width: 81%;
+  margin: auto;
+  margin-top: 0%;
+  /* overflow: hidden; */
 }
 
 .title-main {
@@ -100,6 +110,7 @@ body {
 .progressbar-progress {
   color: #333;
   background: #fff !important;
+  z-index: 1;
 }
 
 .loading-text {
@@ -112,8 +123,9 @@ a {
 }
 
 .devText {
+  color: white;
   font-size: 13px;
-  position: absolute;
+  position: fixed;
   bottom: 1%;
   right: 4%;
 }
@@ -184,19 +196,23 @@ div {
   border: 1px solid white;
 }
 
+button {
+  cursor: pointer;
+}
+
 .yo::-webkit-scrollbar {
   width: 0 !important;
   background: transparent !important;
   display: none;
 }
 
-.alerts {
+/* .alerts {
   color: #fff;
   padding: 5px;
   width: 100%;
   margin-top: 15;
   padding-left: 30px;
-}
+} */
 
 .pointer {
   cursor: pointer;
@@ -220,7 +236,9 @@ textarea {
   border: none;
   background: rgb(26, 25, 25);
   margin: 15px 0;
+  border: #0c0c0c;
 }
+
 
 button {
   margin-top: 30px;
@@ -234,7 +252,8 @@ button {
   list-style: none;
 }
 
-.user-content>ul {
+.user-content>ul,
+.contact-section>ul {
   list-style: none;
   padding: 0;
 }
@@ -250,6 +269,39 @@ button {
   font-size: 1rem;
 }
 
+
+.Menu>ul>li,
+.contact-section>ul>li {
+  font-size: 1rem;
+
+}
+
+.loading-text {
+  font-size: 12px;
+  margin: 1px;
+}
+
+
+.about {
+  font-size: 80%;
+}
+
+.hide-overflow {
+  overflow: hidden;
+}
+
+.cnt-item {
+  padding: 10px 0;
+}
+
+.contact-img {
+  width: 40px;
+  height: 40px;
+  filter: grayscale(100%);
+}
+
+
+
 @media (max-width:800px) {
   .title-main {
     margin-top: 100px;
@@ -257,12 +309,89 @@ button {
     letter-spacing: 5px;
   }
 
-  .Menu>ul>li {
-    font-size: 1rem;
+  .container-l {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden !important;
+    background: transparent;
   }
+}
 
-  .loading-text {
+
+/* home line fall effect */
+.container-l {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden !important;
+  background: transparent;
+}
+
+svg {
+  position: absolute;
+  height: 100%;
+}
+
+.lines {
+  opacity: 0.05;
+}
+
+.line {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: rgb(58, 58, 58);
+}
+
+.lights {
+  opacity: 0.9;
+}
+
+.light {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: rgb(146, 146, 146);
+}
+.move-user{
+  position: fixed;
+  top:10%;
+  right:5%;
+  height:100px;
+  width:500px;
+}
+.sudo{
+  position: relative;
+  text-align: right;
+  margin-top: -5%;
+  margin-right: 10%;
+}
+.user-img{
+  position: absolute;
+  text-align: right;
+  right: -2%;
+  top: -10%;
+}
+.signin{
+  position: relative;
+  margin-top: 7%;
+  margin-right: -12%;
+}
+.p-signin{
+  text-align: right;
+  margin-left: 73%;
+}
+@media only screen and (max-width: 600px){
+  div.sudo{
     font-size: 12px;
-    margin: 1px;
+    margin-top: -3%;
   }
+}
+.p-logout{
+  margin-left: 82%;
+  margin-top: -3%;
+  /* cursor: pointer; */
 }

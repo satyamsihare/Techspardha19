@@ -6,8 +6,10 @@ import config from '../config.json';
 import Context from '../contextStore/Context';
 import axios from 'axios';
 import Loading from './Loading';
-import Grains from './Grains';
+import LinesRain from './LinesRain.jsx';
 const Home = () => {
+  // document.body.scroll = "yes";
+  document.body.style.overflow = 'hidden';
   const { state, dispatch } = useContext(Context);
   const { isAuth } = state;
   const [obfuscate, setObfuscate] = useState({
@@ -24,31 +26,30 @@ const Home = () => {
         ...obfuscate,
         obs: false
       });
-    }, 200);
+    }, 300);
     setTimeout(() => {
       setState({
         ...istate,
         check: false
       });
-    }, 3000);
+    }, 2000);
 
     return function cleanup() {
       abortController.abort();
     };
   }, []);
-
   const list = [
     '/about',
     '/events',
     '/sponsors',
-    '/faqs',
     '/ask_queries',
-    '/contact'
+    '/contact',
+    '/devs'
   ];
   const homeList = list.map((item, index) => (
     <li key={index}>
       <Link to={item}>
-        <Baffle speed={150} obfuscate={obfuscate.obs} revealDelay={400}>
+        <Baffle speed={150} obfuscate={obfuscate.obs}>
           {item}
         </Baffle>
       </Link>
@@ -75,15 +76,6 @@ const Home = () => {
         type: 'USER_LOGIN_SUCCESS',
         payload: res.data
       });
-      dispatch({
-        type: 'ADD_ERROR',
-        payload: { msg: 'user auth success.' }
-      });
-      setTimeout(() => {
-        dispatch({
-          type: 'REMOVE_ERRORS'
-        });
-      }, 3000);
     } catch (error) {
       dispatch({
         type: 'ADD_ERROR',
@@ -114,11 +106,71 @@ const Home = () => {
       });
     }, 3000);
   };
+  let text="",i=0;
+  function name(n){
+    while(i<n.length)
+    {
+      if(n[i]==' '){
+        text+='_';
+        i++;
+      } else {
+        text+=n[i];
+        i++;
+      }
+    }
+    return text;
+  }
   return (
     <>
-
-    <Loading title="home"/>
+      <Loading title='home' />
+      <LinesRain />
       <div className='container'>
+      <div className='move-user'>
+      <div className='user-img'>
+        {state.user && (
+          <img className='l-user' src={state.user.picture} alt='user-img' />
+        )}
+        </div>
+        <div className='sudo'>
+
+        {state.user && <p>@+{name(state.user.name)}/</p>}
+        {isAuth ? (
+          <div>
+            <GoogleLogout
+              clientId={config.GIDKEY}
+              render={renderProps => (
+                <p className="p-logout"
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                >
+                  {'<logout>'}
+                </p>
+              )}
+              onLogoutSuccess={logout}
+              cookiePolicy={'single_host_origin'}
+            />
+          </div>
+        ) : (
+          <div className='signin'>
+            <GoogleLogin
+              clientId={config.GIDKEY}
+              render={renderProps => (
+                <p className="p-signin"
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                >
+                  {'<Signin/Signup>'}
+                </p>
+              )}
+              isSignedIn={true}
+              onSuccess={onsuccess}
+              onFailure={onfailure}
+            />
+          </div>
+        )}
+        </div>
+
+      </div>
         <div className='Menu'>
           <div className='title-main'>
             <Baffle speed={150} obfuscate={obfuscate.obs}>
@@ -128,50 +180,6 @@ const Home = () => {
           <ul>{homeList}</ul>
         </div>
         <br />
-        <div className='user-content'>
-          {istate.check ? <p>checking for auth status...</p> : null}
-          <ul>
-            {state.user && <li>{'> sudo/current_user'}</li>}
-            {state.user && <li>{state.user.name}</li>}
-            {state.user && (
-              <img className='l-user' src={state.user.picture} alt='user-img' />
-            )}
-            {isAuth ? (
-              <li className='pointer'>
-                <GoogleLogout
-                  clientId={config.GIDKEY}
-                  render={renderProps => (
-                    <p
-                      onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
-                    >
-                      /logout
-                    </p>
-                  )}
-                  onLogoutSuccess={logout}
-                  cookiePolicy={'single_host_origin'}
-                />
-              </li>
-            ) : (
-              <li className='pointer'>
-                <GoogleLogin
-                  clientId={config.GIDKEY}
-                  render={renderProps => (
-                    <p
-                      onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
-                    >
-                      {'/auth <Signin/Signup>'}
-                    </p>
-                  )}
-                  isSignedIn={true}
-                  onSuccess={onsuccess}
-                  onFailure={onfailure}
-                />
-              </li>
-            )}
-          </ul>
-        </div>
         <p className='devText'>Developed by Technobyte</p>
       </div>
     </>

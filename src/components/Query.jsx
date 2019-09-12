@@ -3,8 +3,11 @@ import Context from '../contextStore/Context';
 import { Redirect } from 'react-router-dom';
 import Back from './Back';
 import axios from 'axios';
-
+import Loading from './Loading';
+import config from '../config.json';
+import ReCAPTCHA from 'react-google-recaptcha';
 const Query = props => {
+  const [Captcha, setCaptcha] = useState(false);
   const { state, dispatch } = useContext(Context);
   const [formData, setFormData] = useState({
     email: '',
@@ -20,15 +23,26 @@ const Query = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    send(formData);
-    setFormData({
-      email: '',
-      text: ''
-    });
+    if (Captcha) {
+      send(formData);
+      setFormData({
+        email: '',
+        text: ''
+      });
+    } else {
+      dispatch({
+        type: 'ADD_ERROR',
+        payload: { msg: 'Captcha Invalid' }
+      });
+      setTimeout(() => {
+        dispatch({
+          type: 'REMOVE_ERRORS'
+        });
+      }, 3000);
+    }
   };
 
   const send = async formData => {
-    console.log(formData);
     try {
       const config = {
         headers: {
@@ -63,43 +77,50 @@ const Query = props => {
       }, 3000);
     }
   };
-
+  const captcha = () => {
+    setCaptcha(true);
+  };
   if (state.isAuth === false) return <Redirect to='/auth' />;
 
   return (
-    <div className='c-container'>
-      <Back history={props} />
-      <h1>/ask_your_query.</h1>
-      <form onSubmit={handleSubmit}>
-        <div className='form-item'>
-          <div>
-            <label htmlFor='email'>> email</label>
+    <>
+      <Loading title='ask_query' />
+      <div className='c-container'>
+        <Back history={props} />
+        <h1>/ask_your_query.</h1>
+        <form onSubmit={handleSubmit}>
+          <div className='form-item'>
+            <div>
+              <label htmlFor='email'>> email</label>
+            </div>
+            <input
+              onChange={handleChange}
+              value={formData.email}
+              name='email'
+              required='required'
+              type='email'
+            />
           </div>
-          <input
-            onChange={handleChange}
-            value={formData.email}
-            name='email'
-            type='email'
-          />
-        </div>
-        <div className='form-item'>
-          <div>
-            <label htmlFor='email'>> query</label>
+          <div className='form-item'>
+            <div>
+              <label htmlFor='email'>> query</label>
+            </div>
+            <textarea
+              rows='10'
+              required='required'
+              cols='50'
+              onChange={handleChange}
+              name='text'
+              value={formData.text}
+              type='text'
+            />
           </div>
-          <textarea
-            rows='10'
-            cols='50'
-            onChange={handleChange}
-            name='text'
-            value={formData.text}
-            type='text'
-          />
-        </div>
-
-        <button type='submit'>send.</button>
-      </form>
-      <p className='devText'>Developed by Technobyte</p>
-    </div>
+          <ReCAPTCHA sitekey={config.RKEY} theme={'dark'} onChange={captcha} />
+          <button type='submit'>send</button>
+        </form>
+        <p className='devText'>Developed by Technobyte</p>
+      </div>
+    </>
   );
 };
 

@@ -4,10 +4,19 @@
   height: 300%;
   left: -50%;
   opacity: 1;
-  z-index: -1;
+  z-index: -2;
   position: fixed;
   top: -110%;
   width: 300%;
+}
+
+.Lightning {
+  animation: backAnimation 8s linear infinite;
+  height: 100%;
+  opacity: 1;
+  z-index: -1;
+  position: fixed;
+  width: 100%;
 }
 
 @keyframes grain {
@@ -71,6 +80,7 @@ body {
   font-family: 'Droid Sans Mono';
   font-weight: 100;
   color: white;
+  overflow: hidden;
 
 }
 
@@ -98,6 +108,12 @@ body {
   font-size: 1.5vw;
 }
 
+
+.Menu {
+  position: relative;
+  margin-top: 15%;
+}
+
 .Menu>ul {
   list-style: none;
   padding: 0;
@@ -109,9 +125,11 @@ body {
 }
 
 .progressbar-progress {
+  position: fixed;
   color: #333;
   background: #fff !important;
   z-index: 1;
+  top: 0%;
 }
 
 .loading-text {
@@ -123,7 +141,19 @@ a {
   text-decoration: none;
 }
 
+.devText {
+  color: white;
+  font-size: 13px;
+  position: fixed;
+  bottom: 1%;
+  right: 4%;
+}
 
+@media only screen and (max-width: 600px) {
+  p.devText {
+    font-size: 10px;
+  }
+}
 
 .c-container {
   position: relative;
@@ -418,7 +448,11 @@ svg {
 @media only screen and (max-width: 600px) {
   div.sudo {
     font-size: 12px;
-    margin-top: -3%;
+    margin-top: -5%;
+  }
+
+  div.user-img {
+    top: -20%;
   }
 }
 
@@ -426,4 +460,258 @@ svg {
   margin-left: 82%;
   margin-top: -3%;
   /* cursor: pointer; */
+}
+
+
+/* LOGO */
+.mainLogo,
+.blueLogo,
+.redLogo {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.logo {
+  position: fixed;
+  height: 80px;
+  width: 80px;
+  bottom: 7%;
+  right: 3%;
+}
+
+@media only screen and (max-width: 600px) {
+  div.logo {
+    right: 2%;
+  }
+
+  div.Menu {
+    margin-top: 37%;
+  }
+}
+
+.mainLogo,
+.blueLogo,
+.redLogo {
+  position: absolute;
+}
+
+.blueLogo {
+  animation: slowGlitch .3s linear infinite;
+}
+
+.redLogo {
+  animation: slowGlitch .3s linear reverse infinite;
+}
+
+.logo:hover {
+  filter: blur(1px);
+}
+
+.logo:hover .blueLogo {
+  animation: glitch .3s linear infinite;
+}
+
+.logo:hover .redLogo {
+  animation: glitch .3s linear reverse infinite;
+}
+
+.logo:active .blueLogo {
+  animation: onClickGlitch .3s linear infinite;
+}
+
+.logo:active .redLogo {
+  animation: onClickGlitch .3s linear reverse infinite;
+}
+
+.logo:active {
+  animation: onClickResize .3s linear reverse infinite;
+}
+
+@keyframes slowGlitch {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    transform: translate(2px, -2px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-3px, 3px);
+  }
+
+  40% {
+    transform: translate(-3px, -3px);
+  }
+
+  60% {
+    transform: translate(3px, 3px);
+  }
+
+  80% {
+    transform: translate(3px, -3px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes onClickGlitch {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-6px, 6px);
+  }
+
+  40% {
+    transform: translate(-6px, -6px);
+  }
+
+  60% {
+    transform: translate(6px, 6px);
+  }
+
+  80% {
+    transform: translate(6px, -6px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes onClickResize {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    zoom: 2;
+    filter: blur(2px);
+  }
+
+  40% {
+    zoom: 0.5;
+  }
+
+  60% {
+    zoom: 1.5;
+  }
+
+  80% {
+    zoom: 0.9;
+    filter: blur(3px);
+  }
+
+  100% {
+    zoom: 1.2;
+  }
+}
+
+
+@keyframes backAnimation {
+  0% {
+    background-color: white;
+    color: black;
+  }
+
+  1% {
+    background-color: #111111;
+    color: white;
+  }
+
+  2% {
+    background-color: white;
+    color: black;
+  }
+
+  4% {
+    background-color: #111111;
+    color: white;
+  }
+
+  46.9% {
+    background-color: #111111;
+    color: white;
+  }
+
+  47% {
+    background-color: white;
+    color: black;
+  }
+
+  48% {
+    background-color: #111111;
+    color: white;
+  }
+}
+
+/* BACKGROUND */
+@keyframes backAnimation {
+  0% {
+    background-color: white;
+    opacity: 0.8;
+    color: black;
+  }
+
+  1% {
+    background-color: transparent;
+    opacity: 1;
+    color: white;
+  }
+
+  2% {
+    background-color: white;
+    opacity: 0.8;
+    color: black;
+  }
+
+  3.5% {
+    background-color: transparent;
+    opacity: 1;
+    color: white;
+  }
+
+  46.9% {
+    background-color: transparent;
+    opacity: 1;
+    color: white;
+  }
+
+  47% {
+    background-color: white;
+    opacity: 0.8;
+    color: black;
+  }
+
+  49% {
+    background-color: transparent;
+    opacity: 1;
+    color: white;
+  }
 }

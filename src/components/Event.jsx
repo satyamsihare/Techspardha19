@@ -31,7 +31,7 @@ const Event = props => {
 
     getEventDetails();
   }, []);
-  console.log(iState);
+
   if (iState === undefined) return <p>fetching data..</p>;
   if (iState.coordinators === undefined) return <p>fetching data..</p>;
   const coord =
@@ -47,52 +47,58 @@ const Event = props => {
     );
 
   const register = async () => {
-    const body = {
-      eventName: event,
-      eventCategory: category,
-      email: state.user.email
-    };
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: state.token
-      }
-    };
+    if (state.user == null || !state.isAuth) {
+      props.history.push('/auth');
+    } else {
+      const body = {
+        eventName: event,
+        eventCategory: category,
+        email: state.user.email
+      };
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: state.token
+        }
+      };
 
-    try {
-      const res = await axios.put(
-        'https://us-central1-techspardha-87928.cloudfunctions.net/api/user/event',
-        body,
-        config
-      );
-      console.log(res);
-      dispatch({
-        type: 'ADD_ERROR',
-        payload: { msg: res.data.message }
-      });
-      dispatch({
-        type: 'ADD_ERROR',
-        payload: { msg: 'registered' }
-      });
-      setTimeout(() => {
+      try {
+        const res = await axios.put(
+          'https://us-central1-techspardha-87928.cloudfunctions.net/api/user/event',
+          body,
+          config
+        );
         dispatch({
-          type: 'REMOVE_ERRORS'
+          type: 'ADD_ERROR',
+          payload: { msg: 'registered' }
         });
-      }, 3000);
-    } catch (error) {
-      dispatch({
-        type: 'ADD_ERROR',
-        payload: { msg: 'Error Occured: Try refreshing' }
-      });
-      setTimeout(() => {
         dispatch({
-          type: 'REMOVE_ERRORS'
+          type: 'ADD_ERROR',
+          payload: { msg: res.data.message }
         });
-      }, 3000);
+        dispatch({
+          type: 'ADD_ERROR',
+          payload: { msg: 'registered' }
+        });
+        setTimeout(() => {
+          dispatch({
+            type: 'REMOVE_ERRORS'
+          });
+        }, 3000);
+      } catch (error) {
+        dispatch({
+          type: 'ADD_ERROR',
+          payload: { msg: 'Error Occured: Try refreshing' }
+        });
+        setTimeout(() => {
+          dispatch({
+            type: 'REMOVE_ERRORS'
+          });
+        }, 3000);
+      }
     }
   };
 
-  console.log(iState.flagship);
   return (
     <>
       <Loading title='devs' />

@@ -30,8 +30,8 @@ function App() {
           dispatch
         }}
       >
-        <Grains />
         <Alert />
+        <Grains />
         <BrowserRouter>
           <Switch>
             <Route exact path='/' component={Home} />

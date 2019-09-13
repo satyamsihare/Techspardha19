@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect,useRef,useLayoutEffect,useState} from 'react';
+// import Sound from 'react-sound';
 import Typist from 'react-typist';
 import Back from './Back';
 import Loading from './Loading';
@@ -6,9 +7,28 @@ import Loading from './Loading';
 const About = props => {
   document.body.scroll = "yes";
   document.body.style.overflow = 'auto';
+  // const [bool,setState]=useState(false);
+  let flag=0;
+  // let cont=useRef(false);
+  function music()
+  {
+    // const player=new Audio("abstract.mp3");
+    document.getElementById('audio').play();
+    console.log("play");
+
+
+  }
+  const pause=function pausemusic(){
+    console.log("Typing finished");
+    document.getElementById('audio').pause();
+  }
+  // useLayoutEffect(() => {
+
+  // });
+
   return (
     <>
-      <Loading title='about' />
+    <Loading title='about' />
       <div className='c-container'>
         <Back history={props} />
         <h1>/about</h1>
@@ -17,8 +37,10 @@ const About = props => {
             startDelay={0}
             avgTypingDelay={0}
             stdTypingDelay={0}
-            cursor={{ show: false }}
-          >
+            cursor={{show:true, blink:true, element:'>', hideWhenDone:true }}
+            onCharacterTyped={music()}
+            onTypingDone={pause}
+           >
             <p className='about'>
               Techspardha is the annual techno-managerial festival of National
               Institute of Technology, Kurukshetra. It started in 1995 as

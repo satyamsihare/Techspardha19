@@ -121,7 +121,7 @@ const Home = () => {
     return text;
   }
   return (
-    <>
+    <div className="Lightning">
       <Loading title='home' />
       <LinesRain />
       <div className='container'>
@@ -180,9 +180,14 @@ const Home = () => {
           <ul>{homeList}</ul>
         </div>
         <br />
+        <div className="logo"><a href="#">
+        <img className="blueLogo" src="techLogoGlitchBlue.png"/>
+        <img className="redLogo" src="techLogoGlitchRed.png"/>
+        <img className="mainLogo" src="techLogo.png"/></a>
+        </div>
         <p className='devText'>Developed by Technobyte</p>
       </div>
-    </>
+    </div>
   );
 };
 

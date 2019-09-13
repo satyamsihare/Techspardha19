@@ -6,7 +6,6 @@ const Error404 = props => {
         ../
       </p>
       <h1>error 404</h1>
-      <p className='devText'>Developed by Technobyte</p>
     </div>
   );
 };

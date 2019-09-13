@@ -10,6 +10,7 @@ import LinesRain from './LinesRain.jsx';
 const Home = () => {
   // document.body.scroll = "yes";
   document.body.style.overflow = 'hidden';
+  document.getElementById('audio').pause();
   const { state, dispatch } = useContext(Context);
   const { isAuth } = state;
   const [obfuscate, setObfuscate] = useState({

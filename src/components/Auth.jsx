@@ -13,7 +13,6 @@ const Auth = props => {
       <p onClick={handleClick} className='pointer'>
         > {'try /auth <signin/signup>'}
       </p>
-      <p className='devText'>Developed by Technobyte</p>
     </div>
   );
 };

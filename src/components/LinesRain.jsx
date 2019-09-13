@@ -17,7 +17,7 @@ const LinesRain = () => {
       );
     }
 
-    const itemsDown = [
+    [
       '.light4',
       '.light5',
       '.light6',
@@ -30,7 +30,7 @@ const LinesRain = () => {
       '.light15',
       '.light16'
     ].forEach(e => animateWithRandomNumber(e, -1080, 1080));
-    const itemsUp = [
+    [
       '.light1',
       '.light2',
       '.light3',

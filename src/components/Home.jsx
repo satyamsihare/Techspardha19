@@ -106,15 +106,15 @@ const Home = () => {
       });
     }, 3000);
   };
-  let text="",i=0;
-  function name(n){
-    while(i<n.length)
-    {
-      if(n[i]==' '){
-        text+='_';
+  let text = '',
+    i = 0;
+  function name(n) {
+    while (i < n.length) {
+      if (n[i] === ' ') {
+        text += '_';
         i++;
       } else {
-        text+=n[i];
+        text += n[i];
         i++;
       }
     }
@@ -125,52 +125,52 @@ const Home = () => {
       <Loading title='home' />
       <LinesRain />
       <div className='container'>
-      <div className='move-user'>
-      <div className='user-img'>
-        {state.user && (
-          <img className='l-user' src={state.user.picture} alt='user-img' />
-        )}
-        </div>
-        <div className='sudo'>
-
-        {state.user && <p>@+{name(state.user.name)}/</p>}
-        {isAuth ? (
-          <div>
-            <GoogleLogout
-              clientId={config.GIDKEY}
-              render={renderProps => (
-                <p className="p-logout"
-                  onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}
-                >
-                  {'<logout>'}
-                </p>
-              )}
-              onLogoutSuccess={logout}
-              cookiePolicy={'single_host_origin'}
-            />
+        <div className='move-user'>
+          <div className='user-img'>
+            {state.user && (
+              <img className='l-user' src={state.user.picture} alt='user-img' />
+            )}
           </div>
-        ) : (
-          <div className='signin'>
-            <GoogleLogin
-              clientId={config.GIDKEY}
-              render={renderProps => (
-                <p className="p-signin"
-                  onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}
-                >
-                  {'<Signin/Signup>'}
-                </p>
-              )}
-              isSignedIn={true}
-              onSuccess={onsuccess}
-              onFailure={onfailure}
-            />
+          <div className='sudo'>
+            {state.user && <p>@+{name(state.user.name)}/</p>}
+            {isAuth ? (
+              <div className='logout'>
+                <GoogleLogout
+                  clientId={config.GIDKEY}
+                  render={renderProps => (
+                    <p
+                      className='p-logout'
+                      onClick={renderProps.onClick}
+                      disabled={renderProps.disabled}
+                    >
+                      {'<logout>'}
+                    </p>
+                  )}
+                  onLogoutSuccess={logout}
+                  cookiePolicy={'single_host_origin'}
+                />
+              </div>
+            ) : (
+              <div className='signin'>
+                <GoogleLogin
+                  clientId={config.GIDKEY}
+                  render={renderProps => (
+                    <p
+                      className='p-signin'
+                      onClick={renderProps.onClick}
+                      disabled={renderProps.disabled}
+                    >
+                      {'<Signin/Signup>'}
+                    </p>
+                  )}
+                  isSignedIn={true}
+                  onSuccess={onsuccess}
+                  onFailure={onfailure}
+                />
+              </div>
+            )}
           </div>
-        )}
         </div>
-
-      </div>
         <div className='Menu'>
           <div className='title-main'>
             <Baffle speed={150} obfuscate={obfuscate.obs}>

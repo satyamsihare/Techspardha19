@@ -15,6 +15,8 @@ import About from './components/About';
 
 import Grains from './components//Grains';
 import ContactDetails from './components/ContactDetails';
+import EventList from './components/EventList';
+import Event from './components/Event';
 
 function App() {
   const initialState = useContext(Context);
@@ -28,11 +30,13 @@ function App() {
           dispatch
         }}
       >
-        <Grains />
         <Alert />
+        <Grains />
         <BrowserRouter>
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route path='/events/:category/:event' component={Event} />
+            <Route path='/events/:category' component={EventList} />
             <Route path='/events' component={EventCategories} />
             <Route path='/about' component={About} />
             <Route path='/devs' component={Devs} />
@@ -41,7 +45,7 @@ function App() {
             <Route path='/contact/:section' component={ContactDetails} />
             <Route path='/sponsors' component={Sponsors} />
             <Route path='/contact' component={Contact} />
-            <Route component={Error404} />
+            <Route component={Error404} />{' '}
           </Switch>
         </BrowserRouter>
       </Context.Provider>

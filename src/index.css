@@ -81,7 +81,6 @@ body {
   font-weight: 100;
   color: white;
   overflow: hidden;
-
 }
 
 .container {
@@ -108,8 +107,7 @@ body {
   font-size: 1.5vw;
 }
 
-
-.Menu {
+.Menu{
   position: relative;
   margin-top: 15%;
 }
@@ -147,6 +145,12 @@ a {
   position: fixed;
   bottom: 1%;
   right: 4%;
+}
+@media only screen and (max-width: 600px)
+{
+  p.devText{
+    font-size: 10px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -450,9 +454,8 @@ svg {
     font-size: 12px;
     margin-top: -5%;
   }
-
-  div.user-img {
-    top: -20%;
+  div.user-img{
+    top:-20%;
   }
 }
 
@@ -471,55 +474,52 @@ svg {
   max-height: 100%;
 }
 
-.logo {
+.logo{
   position: fixed;
   height: 80px;
   width: 80px;
-  bottom: 7%;
-  right: 3%;
+  bottom:7%;
+  right:3%;
 }
 
-@media only screen and (max-width: 600px) {
-  div.logo {
-    right: 2%;
+@media only screen and (max-width: 600px){
+  div.logo{
+    right:2%;
   }
-
-  div.Menu {
+  div.Menu{
     margin-top: 37%;
   }
 }
 
-.mainLogo,
-.blueLogo,
-.redLogo {
+.mainLogo, .blueLogo,.redLogo{
   position: absolute;
 }
 
-.blueLogo {
+.blueLogo{
   animation: slowGlitch .3s linear infinite;
 }
 
-.redLogo {
+.redLogo{
   animation: slowGlitch .3s linear reverse infinite;
 }
 
-.logo:hover {
+.logo:hover{
   filter: blur(1px);
 }
 
-.logo:hover .blueLogo {
+.logo:hover .blueLogo{
   animation: glitch .3s linear infinite;
 }
 
-.logo:hover .redLogo {
+.logo:hover .redLogo{
   animation: glitch .3s linear reverse infinite;
 }
 
-.logo:active .blueLogo {
+.logo:active .blueLogo{
   animation: onClickGlitch .3s linear infinite;
 }
 
-.logo:active .redLogo {
+.logo:active .redLogo{
   animation: onClickGlitch .3s linear reverse infinite;
 }
 
@@ -528,144 +528,118 @@ svg {
 }
 
 @keyframes slowGlitch {
-  0% {
+  0%{
     transform: translate(0);
   }
-
-  20% {
+  20%{
     transform: translate(-2px, 2px);
   }
-
-  40% {
+  40%{
     transform: translate(-2px, -2px);
   }
-
-  60% {
+  60%{
     transform: translate(2px, 2px);
   }
-
-  80% {
+  80%{
     transform: translate(2px, -2px);
   }
-
-  100% {
+  100%{
     transform: translate(0);
   }
 }
 
 @keyframes glitch {
-  0% {
+  0%{
     transform: translate(0);
   }
-
-  20% {
+  20%{
     transform: translate(-3px, 3px);
   }
-
-  40% {
+  40%{
     transform: translate(-3px, -3px);
   }
-
-  60% {
+  60%{
     transform: translate(3px, 3px);
   }
-
-  80% {
+  80%{
     transform: translate(3px, -3px);
   }
-
-  100% {
+  100%{
     transform: translate(0);
   }
 }
 
 @keyframes onClickGlitch {
-  0% {
+  0%{
     transform: translate(0);
   }
-
-  20% {
+  20%{
     transform: translate(-6px, 6px);
   }
-
-  40% {
+  40%{
     transform: translate(-6px, -6px);
   }
-
-  60% {
+  60%{
     transform: translate(6px, 6px);
   }
-
-  80% {
+  80%{
     transform: translate(6px, -6px);
   }
-
-  100% {
+  100%{
     transform: translate(0);
   }
 }
 
 @keyframes onClickResize {
-  0% {
+  0%{
     transform: translate(0);
   }
-
-  20% {
-    zoom: 2;
+  20%{
+    zoom:2;
     filter: blur(2px);
   }
-
-  40% {
+  40%{
     zoom: 0.5;
   }
-
-  60% {
+  60%{
     zoom: 1.5;
   }
-
-  80% {
+  80%{
     zoom: 0.9;
     filter: blur(3px);
   }
-
-  100% {
-    zoom: 1.2;
+  100%{
+    zoom:1.2;
   }
 }
 
 
 @keyframes backAnimation {
-  0% {
+  0%{
     background-color: white;
     color: black;
   }
-
-  1% {
+  1%{
     background-color: #111111;
     color: white;
   }
-
-  2% {
+  2%{
     background-color: white;
     color: black;
   }
-
-  4% {
+  4%{
     background-color: #111111;
     color: white;
   }
-
-  46.9% {
+  46.9%{
     background-color: #111111;
     color: white;
   }
-
-  47% {
+  47%{
     background-color: white;
     color: black;
   }
-
-  48% {
+  48%{
     background-color: #111111;
     color: white;
   }
@@ -678,38 +652,32 @@ svg {
     opacity: 0.8;
     color: black;
   }
-
-  1% {
+  1%{
     background-color: transparent;
     opacity: 1;
     color: white;
   }
-
-  2% {
+  2%{
     background-color: white;
     opacity: 0.8;
     color: black;
   }
-
-  3.5% {
+  3.5%{
     background-color: transparent;
     opacity: 1;
     color: white;
   }
-
-  46.9% {
-    background-color: transparent;
+  46.9%{
+    background-color:transparent;
     opacity: 1;
     color: white;
   }
-
-  47% {
+  47%{
     background-color: white;
     opacity: 0.8;
     color: black;
   }
-
-  49% {
+  49%{
     background-color: transparent;
     opacity: 1;
     color: white;

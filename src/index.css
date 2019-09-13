@@ -10,7 +10,7 @@
   width: 300%;
 }
 
-.Lightning{
+.Lightning {
   animation: backAnimation 8s linear infinite;
   height: 100%;
   opacity: 1;
@@ -80,8 +80,7 @@ body {
   font-family: 'Droid Sans Mono';
   font-weight: 100;
   color: white;
-  overflow:hidden;
-
+  overflow: hidden;
 }
 
 .container {
@@ -92,6 +91,7 @@ body {
   margin-top: 9%;
   /* overflow: hidden; */
 }
+
 .container2 {
   position: relative;
   height: 75vh;
@@ -106,7 +106,6 @@ body {
   margin-bottom: 20px;
   font-size: 1.5vw;
 }
-
 
 .Menu{
   position: relative;
@@ -128,7 +127,7 @@ body {
   color: #333;
   background: #fff !important;
   z-index: 1;
-  top:0%;
+  top: 0%;
 }
 
 .loading-text {
@@ -154,12 +153,28 @@ a {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  p.devText {
+    font-size: 10px;
+  }
+}
+
 .c-container {
   position: relative;
   height: 100vh;
   width: 81%;
   margin: auto;
   margin-top: 50px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flagship {
+  margin-left: 10px;
 }
 
 .back {
@@ -221,6 +236,11 @@ div {
 }
 
 button {
+  cursor: pointer;
+}
+
+.signin,
+.logout {
   cursor: pointer;
 }
 
@@ -305,6 +325,14 @@ button {
   margin: 1px;
 }
 
+.ievent-list>ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cnt-item {
+  cursor: pointer;
+}
 
 .about {
   font-size: 80%;
@@ -324,7 +352,9 @@ button {
   filter: grayscale(100%);
 }
 
-
+.register {
+  cursor: pointer;
+}
 
 @media (max-width:800px) {
   .title-main {
@@ -343,6 +373,11 @@ button {
     background: transparent;
   }
 }
+
+
+
+
+
 
 
 /* home line fall effect */
@@ -380,36 +415,42 @@ svg {
   clip-rule: evenodd;
   fill: rgb(146, 146, 146);
 }
-.move-user{
+
+.move-user {
   position: fixed;
-  top:10%;
-  right:5%;
-  height:100px;
-  width:500px;
+  top: 10%;
+  right: 5%;
+  height: 100px;
+  width: 500px;
 }
-.sudo{
+
+.sudo {
   position: relative;
   text-align: right;
   margin-top: -5%;
   margin-right: 10%;
 }
-.user-img{
+
+.user-img {
   position: absolute;
   text-align: right;
   right: -2%;
   top: -10%;
 }
-.signin{
+
+.signin {
   position: relative;
   margin-top: 7%;
   margin-right: -12%;
 }
-.p-signin{
+
+.p-signin {
   text-align: right;
   margin-left: 73%;
 }
-@media only screen and (max-width: 600px){
-  div.sudo{
+
+@media only screen and (max-width: 600px) {
+  div.sudo {
     font-size: 12px;
     margin-top: -5%;
   }
@@ -417,7 +458,8 @@ svg {
     top:-20%;
   }
 }
-.p-logout{
+
+.p-logout {
   margin-left: 82%;
   margin-top: -3%;
   /* cursor: pointer; */
@@ -425,7 +467,9 @@ svg {
 
 
 /* LOGO */
-.mainLogo, .blueLogo, .redLogo{
+.mainLogo,
+.blueLogo,
+.redLogo {
   max-width: 100%;
   max-height: 100%;
 }
@@ -603,7 +647,7 @@ svg {
 
 /* BACKGROUND */
 @keyframes backAnimation {
-  0%{
+  0% {
     background-color: white;
     opacity: 0.8;
     color: black;

@@ -5,34 +5,34 @@ import Back from './Back';
 import axios from 'axios';
 
 const ContactDetails = props => {
-    // document.body.style.overflow = 'auto';
+  // document.body.style.overflow = 'auto';
   const { dispatch } = useContext(Context);
   const [contactDetails, setContactDetails] = useState({
     contacts: []
   });
 
-  const getContact = async () => {
-    try {
-      const res = await axios.get(
-        'https://us-central1-techspardha-87928.cloudfunctions.net/api/contacts'
-      );
-      setContactDetails({
-        ...contactDetails,
-        contacts: res.data.data.contacts
-      });
-    } catch (error) {
-      dispatch({
-        type: 'ADD_ERROR',
-        payload: { msg: 'Error Occured: Try refreshing' }
-      });
-      setTimeout(() => {
-        dispatch({
-          type: 'REMOVE_ERRORS'
-        });
-      }, 3000);
-    }
-  };
   useEffect(() => {
+    const getContact = async () => {
+      try {
+        const res = await axios.get(
+          'https://us-central1-techspardha-87928.cloudfunctions.net/api/contacts'
+        );
+        setContactDetails({
+          ...contactDetails,
+          contacts: res.data.data.contacts
+        });
+      } catch (error) {
+        dispatch({
+          type: 'ADD_ERROR',
+          payload: { msg: 'Error Occured: Try refreshing' }
+        });
+        setTimeout(() => {
+          dispatch({
+            type: 'REMOVE_ERRORS'
+          });
+        }, 3000);
+      }
+    };
     getContact();
   }, []);
   if (contactDetails.contacts.length <= 0) return <p>fetching contacts..</p>;
@@ -61,7 +61,6 @@ const ContactDetails = props => {
         <Back history={props} />
         <h1>/{props.match.params.section}</h1>
         <div>{people}</div>
-        <p className='devText'>Developed by Technobyte</p>
       </div>
     </>
   );

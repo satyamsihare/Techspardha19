@@ -118,7 +118,6 @@ const Query = props => {
           <ReCAPTCHA sitekey={config.RKEY} theme={'dark'} onChange={captcha} />
           <button type='submit'>send</button>
         </form>
-        <p className='devText'>Developed by Technobyte</p>
       </div>
     </>
   );

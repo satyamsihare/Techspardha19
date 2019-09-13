@@ -2,11 +2,15 @@ import React, { useEffect, useState, useContext } from 'react';
 import Back from './Back';
 import Context from '../contextStore/Context';
 import Loading from './Loading';
+import Typist from 'react-typist';
 import axios from 'axios';
-
+import Sound from 'react-sound';
 const Event = props => {
+  document.body.scroll = "yes";
+  document.body.style.overflow = 'auto';
   const event = props.match.params.event;
   const category = props.match.params.category;
+  const [bool,setState2]=useState("PLAYING");
   const [iState, setState] = useState({});
   const { state, dispatch } = useContext(Context);
   useEffect(() => {
@@ -99,8 +103,16 @@ const Event = props => {
     }
   };
 
+    const pause=function pausemusic(){
+      console.log("Typing finished");
+      setState2("STOPPED");
+    }
   return (
     <>
+    <Sound
+      url="../../type2.mp3"
+      playStatus={bool}
+    />
       <Loading title='devs' />
       <div className='c-container'>
         <Back history={props} />
@@ -117,6 +129,13 @@ const Event = props => {
             </div>
           </div>
         </span>
+        <Typist
+          startDelay={0}
+          avgTypingDelay={0}
+          stdTypingDelay={0}
+          cursor={{show:true, blink:true, element:'>', hideWhenDone:false }}
+          onTypingDone={pause}
+         >
         <div>
           <div className='min-details'>
             <h3 onClick={register} className='register'>
@@ -138,7 +157,7 @@ const Event = props => {
             <p> {iState.description}</p>
             <h4>rules:</h4>
             <div>
-              {iState.rules.length > 0 ? (
+              {iState.rules!=null && iState.rules.length > 0 ? (
                 iState.rules.map((r, i) => <p key={i}>- {r}</p>)
               ) : (
                 <p>no rules</p>
@@ -149,6 +168,7 @@ const Event = props => {
             {coord}
           </div>
         </div>
+          </Typist>
       </div>
     </>
   );

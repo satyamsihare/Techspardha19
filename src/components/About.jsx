@@ -1,33 +1,30 @@
 import React, {useEffect,useRef,useLayoutEffect,useState} from 'react';
-// import Sound from 'react-sound';
 import Typist from 'react-typist';
 import Back from './Back';
 import Loading from './Loading';
+import ReactAudioPlayer from 'react-audio-player';
+import Sound from 'react-sound';
 // import Typewriter from 'typewriter-effect';
 const About = props => {
   document.body.scroll = "yes";
   document.body.style.overflow = 'auto';
-  // const [bool,setState]=useState(false);
+
+  const [bool,setState]=useState("PLAYING");
   let flag=0;
-  // let cont=useRef(false);
-  function music()
-  {
-    // const player=new Audio("abstract.mp3");
-    document.getElementById('audio').play();
-    console.log("play");
 
-
-  }
   const pause=function pausemusic(){
     console.log("Typing finished");
-    document.getElementById('audio').pause();
+    setState("STOPPED");
   }
-  // useLayoutEffect(() => {
-
-  // });
 
   return (
     <>
+    <Sound
+      url="type2.mp3"
+      playStatus={bool}
+    />
+
+
     <Loading title='about' />
       <div className='c-container'>
         <Back history={props} />
@@ -38,7 +35,6 @@ const About = props => {
             avgTypingDelay={0}
             stdTypingDelay={0}
             cursor={{show:true, blink:true, element:'>', hideWhenDone:true }}
-            onCharacterTyped={music()}
             onTypingDone={pause}
            >
             <p className='about'>

@@ -2,7 +2,7 @@ import React, { useContext, useReducer } from 'react';
 import Context from './contextStore/Context';
 import reducer from './reducers/rootReducer';
 import Home from './components/Home';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, HashRouter, Switch } from 'react-router-dom';
 import EventCategories from './components/EventCategories';
 import Error404 from './components/Error404';
 import Devs from './components/Dev';
@@ -33,7 +33,7 @@ function App() {
       >
         <Alert />
         <Grains />
-        <BrowserRouter>
+        <HashRouter basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/events/:category/:event' component={Event} />
@@ -49,7 +49,7 @@ function App() {
             <Route path='/contact' component={Contact} />
             <Route component={Error404} />{' '}
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
       </Context.Provider>
     </>
   );

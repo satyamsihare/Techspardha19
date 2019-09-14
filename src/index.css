@@ -266,6 +266,9 @@ button {
   margin-top: 15;
   padding-left: 30px;
 } */
+.alerts {
+  margin-top: 35px;
+}
 
 .pointer {
   cursor: pointer;

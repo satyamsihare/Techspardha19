@@ -493,6 +493,7 @@ svg {
 
 .mainLogo, .blueLogo,.redLogo{
   position: absolute;
+  pointer-events: none;
 }
 
 .blueLogo{
@@ -614,36 +615,6 @@ svg {
 }
 
 
-@keyframes backAnimation {
-  0%{
-    background-color: white;
-    color: black;
-  }
-  1%{
-    background-color: #111111;
-    color: white;
-  }
-  2%{
-    background-color: white;
-    color: black;
-  }
-  4%{
-    background-color: #111111;
-    color: white;
-  }
-  46.9%{
-    background-color: #111111;
-    color: white;
-  }
-  47%{
-    background-color: white;
-    color: black;
-  }
-  48%{
-    background-color: #111111;
-    color: white;
-  }
-}
 
 /* BACKGROUND */
 @keyframes backAnimation {

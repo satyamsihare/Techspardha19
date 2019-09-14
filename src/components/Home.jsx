@@ -9,7 +9,7 @@ import Loading from './Loading';
 import LinesRain from './LinesRain.jsx';
 import Sound from 'react-sound';
 import './dino.css';
-const Home = () => {
+const Home = props => {
   // document.body.scroll = "yes";
   document.body.style.overflow = 'hidden';
   const [bool,setState1]=useState("PLAYING");
@@ -177,7 +177,7 @@ const Home = () => {
           </div>
           <ul>{homeList}</ul>
         </div>
-      
+
         <br />
         <div className='logo'>
           <a href='#'>

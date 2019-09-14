@@ -6,18 +6,18 @@ import Typist from 'react-typist';
 import axios from 'axios';
 import Sound from 'react-sound';
 const Event = props => {
-  document.body.scroll = "yes";
+  document.body.scroll = 'yes';
   document.body.style.overflow = 'auto';
   const event = props.match.params.event;
   const category = props.match.params.category;
-  const [bool,setState2]=useState("PLAYING");
+  const [bool, setState2] = useState('PLAYING');
   const [iState, setState] = useState({});
   const { state, dispatch } = useContext(Context);
   useEffect(() => {
     const getEventDetails = async () => {
       try {
         const res = await axios.get(
-          `http://us-central1-techspardha-87928.cloudfunctions.net/api/events/description?eventCategory=${category}&eventName=${event}`
+          `https://us-central1-techspardha-87928.cloudfunctions.net/api/events/description?eventCategory=${category}&eventName=${event}`
         );
         setState(res.data.data);
       } catch (error) {
@@ -67,15 +67,20 @@ const Event = props => {
       };
 
       try {
+        dispatch({
+          type: 'ADD_ERROR',
+          payload: { msg: 'Registering' }
+        });
+        setTimeout(() => {
+          dispatch({
+            type: 'REMOVE_ERRORS'
+          });
+        }, 1000);
         const res = await axios.put(
           'https://us-central1-techspardha-87928.cloudfunctions.net/api/user/event',
           body,
           config
         );
-        dispatch({
-          type: 'ADD_ERROR',
-          payload: { msg: 'registered' }
-        });
         dispatch({
           type: 'ADD_ERROR',
           payload: { msg: res.data.message }
@@ -103,16 +108,13 @@ const Event = props => {
     }
   };
 
-    const pause=function pausemusic(){
-      console.log("Typing finished");
-      setState2("STOPPED");
-    }
+  const pause = function pausemusic() {
+    console.log('Typing finished');
+    setState2('STOPPED');
+  };
   return (
     <>
-    <Sound
-      url="../../type2.mp3"
-      playStatus={bool}
-    />
+      <Sound url='../../type2.mp3' playStatus={bool} />
       <Loading title='devs' />
       <div className='c-container'>
         <Back history={props} />
@@ -133,42 +135,47 @@ const Event = props => {
           startDelay={0}
           avgTypingDelay={0}
           stdTypingDelay={0}
-          cursor={{show:true, blink:true, element:'>', hideWhenDone:false }}
+          cursor={{
+            show: true,
+            blink: true,
+            element: '>',
+            hideWhenDone: false
+          }}
           onTypingDone={pause}
-         >
-        <div>
-          <div className='min-details'>
-            <h3 onClick={register} className='register'>
-              [- REGISTER -]
-            </h3>
-            <p>start time: {iState.startTime}</p>
-            <p>venue: {iState.venue}</p>
-            <span>
-              google_form:
-              <a
-                target='_blank'
-                style={{ textDecoration: 'underline' }}
-                href={iState.file}
-              >
-                link
-              </a>
-            </span>
-            <h4>event_description:</h4>
-            <p> {iState.description}</p>
-            <h4>rules:</h4>
-            <div>
-              {iState.rules!=null && iState.rules.length > 0 ? (
-                iState.rules.map((r, i) => <p key={i}>- {r}</p>)
-              ) : (
-                <p>no rules</p>
-              )}
+        >
+          <div>
+            <div className='min-details'>
+              <h3 onClick={register} className='register'>
+                [- REGISTER -]
+              </h3>
+              <p>start time: {iState.startTime}</p>
+              <p>venue: {iState.venue}</p>
+              <span>
+                google_form:
+                <a
+                  target='_blank'
+                  style={{ textDecoration: 'underline' }}
+                  href={iState.file}
+                >
+                  link
+                </a>
+              </span>
+              <h4>event_description:</h4>
+              <p> {iState.description}</p>
+              <h4>rules:</h4>
+              <div>
+                {iState.rules != null && iState.rules.length > 0 ? (
+                  iState.rules.map((r, i) => <p key={i}>- {r}</p>)
+                ) : (
+                  <p>no rules</p>
+                )}
+              </div>
+              <br />
+              <h4>Coordinators :</h4>
+              {coord}
             </div>
-            <br />
-            <h4>Coordinators :</h4>
-            {coord}
           </div>
-        </div>
-          </Typist>
+        </Typist>
       </div>
     </>
   );

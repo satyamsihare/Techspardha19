@@ -12,7 +12,7 @@ import './dino.css';
 const Home = props => {
   // document.body.scroll = "yes";
   document.body.style.overflow = 'hidden';
-  const [bool,setState1]=useState("PLAYING");
+  const [bool, setState1] = useState('PLAYING');
   const { state, dispatch } = useContext(Context);
   const { isAuth } = state;
   const [obfuscate, setObfuscate] = useState({
@@ -113,13 +113,13 @@ const Home = props => {
     return text;
   }
   return (
-    <div className="Lightning">
-    <Sound
-      url="rainstorm.wav"
-      playStatus={bool}
-      // muted={true}
-      loop
-    />
+    <div className='Lightning'>
+      <Sound
+        url='rainstorm.wav'
+        playStatus={bool}
+        // muted={true}
+        loop
+      />
       <Loading title='home' />
       <LinesRain />
       <div className='container'>

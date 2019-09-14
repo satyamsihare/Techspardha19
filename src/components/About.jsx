@@ -7,7 +7,7 @@ import Sound from 'react-sound';
 // import Typewriter from 'typewriter-effect';
 const About = props => {
   document.body.scroll = "yes";
-  document.body.style.overflow = 'auto';
+  document.body.style.overflow = 'scroll';
 
   const [bool,setState]=useState("PLAYING");
   let flag=0;

@@ -7,9 +7,12 @@ import Context from '../contextStore/Context';
 import axios from 'axios';
 import Loading from './Loading';
 import LinesRain from './LinesRain.jsx';
+import Sound from 'react-sound';
+import './dino.css';
 const Home = () => {
   // document.body.scroll = "yes";
   document.body.style.overflow = 'hidden';
+  const [bool,setState1]=useState("PLAYING");
   const { state, dispatch } = useContext(Context);
   const { isAuth } = state;
   const [obfuscate, setObfuscate] = useState({
@@ -121,7 +124,14 @@ const Home = () => {
     return text;
   }
   return (
+
     <div className="Lightning">
+    <Sound
+      url="rainstorm.wav"
+      playStatus={bool}
+      // muted={true}
+      loop
+    />
       <Loading title='home' />
       <LinesRain />
       <div className='container'>
@@ -179,7 +189,9 @@ const Home = () => {
           </div>
           <ul>{homeList}</ul>
         </div>
+      
         <br />
+
         <div className="logo"><a href="#">
         <img className="blueLogo" src="techLogoGlitchBlue.png"/>
         <img className="redLogo" src="techLogoGlitchRed.png"/>

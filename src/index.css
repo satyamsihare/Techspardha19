@@ -266,6 +266,9 @@ button {
   margin-top: 15;
   padding-left: 30px;
 } */
+.alerts {
+  margin-top: 35px;
+}
 
 .pointer {
   cursor: pointer;
@@ -374,6 +377,10 @@ button {
     letter-spacing: 5px;
   }
 
+  .horizontal-scroll-wrapper {
+    height: 900px;
+  }
+
   .container-l {
     position: absolute;
     height: 100%;
@@ -386,7 +393,11 @@ button {
 }
 
 
-
+.event-c-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 

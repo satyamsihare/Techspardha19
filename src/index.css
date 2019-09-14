@@ -19,6 +19,20 @@
   width: 100%;
 }
 
+.reg-eve {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details {
+  border: 1px white solid;
+  padding: 10px;
+}
+
+.bold {
+  font-weight: 900;
+}
+
 @keyframes grain {
 
   0%,
@@ -81,6 +95,7 @@ body {
   font-weight: 100;
   color: white;
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 .container {
@@ -497,6 +512,8 @@ svg {
   max-height: 100%;
 }
 
+
+
 .logo {
   position: fixed;
   height: 80px;
@@ -740,4 +757,9 @@ svg {
     opacity: 1;
     color: white;
   }
+}
+
+.pointer {
+  cursor: pointer;
+  text-decoration: underline;
 }

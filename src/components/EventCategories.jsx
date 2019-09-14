@@ -4,7 +4,7 @@ import Loading from './Loading';
 import EventsList from './EventsList';
 
 const EventCategories = props => {
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = 'hidden';
   return (
     <div className='hide-overflow'>
       <Loading title='events' />

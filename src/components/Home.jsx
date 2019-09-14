@@ -7,36 +7,28 @@ import Context from '../contextStore/Context';
 import axios from 'axios';
 import Loading from './Loading';
 import LinesRain from './LinesRain.jsx';
-const Home = () => {
+import Sound from 'react-sound';
+import './dino.css';
+const Home = props => {
   // document.body.scroll = "yes";
   document.body.style.overflow = 'hidden';
+  const [bool,setState1]=useState("PLAYING");
   const { state, dispatch } = useContext(Context);
   const { isAuth } = state;
   const [obfuscate, setObfuscate] = useState({
     obs: true
   });
-  const [istate, setState] = useState({
-    check: true
-  });
-  useEffect(() => {
-    const abortController = new AbortController();
 
+  if (state.user && !state.user.onBoard) {
+    props.history.push('/onboard');
+  }
+  useEffect(() => {
     setTimeout(() => {
       setObfuscate({
         ...obfuscate,
         obs: false
       });
     }, 300);
-    setTimeout(() => {
-      setState({
-        ...istate,
-        check: false
-      });
-    }, 2000);
-
-    return function cleanup() {
-      abortController.abort();
-    };
   }, []);
   const list = [
     '/about',
@@ -122,6 +114,12 @@ const Home = () => {
   }
   return (
     <div className="Lightning">
+    <Sound
+      url="rainstorm.wav"
+      playStatus={bool}
+      // muted={true}
+      loop
+    />
       <Loading title='home' />
       <LinesRain />
       <div className='container'>
@@ -179,11 +177,14 @@ const Home = () => {
           </div>
           <ul>{homeList}</ul>
         </div>
+
         <br />
-        <div className="logo"><a href="#">
-        <img className="blueLogo" src="techLogoGlitchBlue.png"/>
-        <img className="redLogo" src="techLogoGlitchRed.png"/>
-        <img className="mainLogo" src="techLogo.png"/></a>
+        <div className='logo'>
+          <a href='#'>
+            <img className='blueLogo' src='techLogoGlitchBlue.png' />
+            <img className='redLogo' src='techLogoGlitchRed.png' />
+            <img className='mainLogo' src='techLogo.png' />
+          </a>
         </div>
         <p className='devText'>Developed by Technobyte</p>
       </div>

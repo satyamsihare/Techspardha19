@@ -12,7 +12,7 @@ import Alert from './components/Alert';
 import Auth from './components/Auth';
 import Query from './components/Query';
 import About from './components/About';
-
+import Guest from './components/Guest';
 import Grains from './components//Grains';
 import ContactDetails from './components/ContactDetails';
 import EventList from './components/EventList';
@@ -48,6 +48,7 @@ function App() {
             <Route path='/ask_queries' component={Query} />
             <Route path='/contact/:section' component={ContactDetails} />
             <Route path='/sponsors' component={Sponsors} />
+            <Route path='/guest_lectures' component={Guest} />
             <Route path='/contact' component={Contact} />
             <Route component={Error404} />{' '}
           </Switch>

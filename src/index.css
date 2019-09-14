@@ -246,6 +246,7 @@ div {
   transform: rotate(90deg);
   -webkit-transform-origin: right top;
   transform-origin: right top;
+
 }
 
 .squares {
@@ -257,6 +258,22 @@ div {
   height: 450px;
   margin: 50px 30px;
   border: 1px solid white;
+}
+
+@media only screen and (max-width:600px) {
+  div.squares {
+    padding: 270px 50px 140px 140px;
+  }
+
+  div.squares>div {
+    width: 300px;
+    height: 400px;
+  }
+
+  p.guest-name {
+    margin-top: 40px;
+    font-size: 25px;
+  }
 }
 
 button {
@@ -536,6 +553,7 @@ svg {
 .blueLogo,
 .redLogo {
   position: absolute;
+  pointer-events: none;
 }
 
 .blueLogo {
@@ -676,44 +694,6 @@ svg {
   }
 }
 
-
-@keyframes backAnimation {
-  0% {
-    background-color: white;
-    color: black;
-  }
-
-  1% {
-    background-color: #111111;
-    color: white;
-  }
-
-  2% {
-    background-color: white;
-    color: black;
-  }
-
-  4% {
-    background-color: #111111;
-    color: white;
-  }
-
-  46.9% {
-    background-color: #111111;
-    color: white;
-  }
-
-  47% {
-    background-color: white;
-    color: black;
-  }
-
-  48% {
-    background-color: #111111;
-    color: white;
-  }
-}
-
 /* BACKGROUND */
 @keyframes backAnimation {
   0% {
@@ -760,6 +740,76 @@ svg {
 }
 
 .pointer {
-  cursor: pointer;
   text-decoration: underline;
+  cursor: pointer;
+}
+
+.sponsor {
+  height: 100px;
+  width: 100px;
+}
+
+.guest {
+  height: 80%;
+  width: 80%;
+  text-align: center;
+  filter: grayscale(85%);
+}
+
+.guest-desc {
+  position: absolute;
+  padding: 5%;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  font-size: 14px;
+  overflow: scroll;
+}
+
+.guest-img {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: auto;
+  opacity: 1;
+  transition: opacity .15s ease-in;
+}
+
+.guest-name {
+  opacity: 1;
+  text-align: center;
+  transition: opacity .15s ease-in;
+}
+
+.date {
+  font-size: 18px;
+}
+
+.guest-desc {
+  opacity: 0;
+  transition: opacity .15s ease-out;
+}
+
+.guest-card:hover .guest-img {
+  opacity: 0;
+}
+
+.guest-card:hover .guest-name {
+  opacity: 0;
+}
+
+.guest-card:hover .guest-desc {
+  opacity: 1;
+}
+
+.guest-card:active .guest-img {
+  opacity: 0;
+}
+
+.guest-card:active .guest-name {
+  opacity: 0;
+}
+
+.guest-card:active .guest-desc {
+  opacity: 1;
 }

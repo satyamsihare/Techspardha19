@@ -33,6 +33,7 @@ const Home = props => {
   const list = [
     '/about',
     '/events',
+    '/guest_lectures',
     '/sponsors',
     '/ask_queries',
     '/contact',

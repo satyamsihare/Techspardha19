@@ -17,7 +17,7 @@ const Event = props => {
     const getEventDetails = async () => {
       try {
         const res = await axios.get(
-          `http://us-central1-techspardha-87928.cloudfunctions.net/api/events/description?eventCategory=${category}&eventName=${event}`
+          `https://us-central1-techspardha-87928.cloudfunctions.net/api/events/description?eventCategory=${category}&eventName=${event}`
         );
         setState(res.data.data);
       } catch (error) {

@@ -18,28 +18,17 @@ const Home = () => {
   const [obfuscate, setObfuscate] = useState({
     obs: true
   });
-  const [istate, setState] = useState({
-    check: true
-  });
-  useEffect(() => {
-    const abortController = new AbortController();
 
+  if (state.user && !state.user.onBoard) {
+    props.history.push('/onboard');
+  }
+  useEffect(() => {
     setTimeout(() => {
       setObfuscate({
         ...obfuscate,
         obs: false
       });
     }, 300);
-    setTimeout(() => {
-      setState({
-        ...istate,
-        check: false
-      });
-    }, 2000);
-
-    return function cleanup() {
-      abortController.abort();
-    };
   }, []);
   const list = [
     '/about',
@@ -124,7 +113,6 @@ const Home = () => {
     return text;
   }
   return (
-
     <div className="Lightning">
     <Sound
       url="rainstorm.wav"
@@ -191,11 +179,12 @@ const Home = () => {
         </div>
       
         <br />
-
-        <div className="logo"><a href="#">
-        <img className="blueLogo" src="techLogoGlitchBlue.png"/>
-        <img className="redLogo" src="techLogoGlitchRed.png"/>
-        <img className="mainLogo" src="techLogo.png"/></a>
+        <div className='logo'>
+          <a href='#'>
+            <img className='blueLogo' src='techLogoGlitchBlue.png' />
+            <img className='redLogo' src='techLogoGlitchRed.png' />
+            <img className='mainLogo' src='techLogo.png' />
+          </a>
         </div>
         <p className='devText'>Developed by Technobyte</p>
       </div>

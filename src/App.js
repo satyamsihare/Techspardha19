@@ -17,6 +17,7 @@ import Grains from './components//Grains';
 import ContactDetails from './components/ContactDetails';
 import EventList from './components/EventList';
 import Event from './components/Event';
+import Onboard from './components/Onboard';
 
 function App() {
   const initialState = useContext(Context);
@@ -37,6 +38,7 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route path='/events/:category/:event' component={Event} />
             <Route path='/events/:category' component={EventList} />
+            <Route path='/onboard' component={Onboard} />
             <Route path='/events' component={EventCategories} />
             <Route path='/about' component={About} />
             <Route path='/devs' component={Devs} />

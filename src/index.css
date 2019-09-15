@@ -813,3 +813,24 @@ svg {
 .guest-card:active .guest-desc {
   opacity: 1;
 }
+
+.timeline {
+  overflow:scroll;
+  height:80%;
+  width:40%;
+  position: fixed;
+  right:0%;
+  top:10%;
+}
+.timeline-title{
+  font-size: 120%;
+}
+.timeline-content {
+  font-size: 150%;
+  text-align: left;
+}
+
+.timeline-img{
+  height:100%;
+  width:100%;
+}

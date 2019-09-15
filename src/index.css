@@ -826,6 +826,7 @@ svg {
   opacity: 1;
 }
 
+<<<<<<< HEAD
 /* dev page */
 
 .n-devs {
@@ -852,3 +853,25 @@ svg {
   text-align: center;
 
 }
+=======
+.timeline {
+  overflow:scroll;
+  height:80%;
+  width:40%;
+  position: fixed;
+  right:0%;
+  top:10%;
+}
+.timeline-title{
+  font-size: 120%;
+}
+.timeline-content {
+  font-size: 150%;
+  text-align: left;
+}
+
+.timeline-img{
+  height:100%;
+  width:100%;
+}
+>>>>>>> e66ea8bbe9b639096f678d44bc9e0261f8a24514

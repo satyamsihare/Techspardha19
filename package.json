@@ -5,13 +5,18 @@
   "dependencies": {
     "axios": "^0.19.0",
     "baffle-react": "0.0.2",
+<<<<<<< HEAD
     "date-fns": "^2.2.1",
+=======
+    "dateformat": "^3.0.3",
+>>>>>>> e66ea8bbe9b639096f678d44bc9e0261f8a24514
     "gh-pages": "^2.1.1",
     "gsap": "^2.1.3",
     "jsonwebtoken": "^8.5.1",
     "react": "^16.9.0",
     "react-audio-player": "^0.11.1",
     "react-dom": "^16.9.0",
+    "react-event-timeline": "^1.6.3",
     "react-google-login": "^5.0.5",
     "react-google-recaptcha": "^2.0.0-rc.1",
     "react-hot-loader": "^4.12.13",

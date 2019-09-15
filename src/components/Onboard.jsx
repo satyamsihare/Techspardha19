@@ -67,6 +67,7 @@ const Onboard = props => {
                 name='phone'
                 onChange={handleChange}
                 type='text'
+                maxLength='10'
                 required='required'
               />
             </div>

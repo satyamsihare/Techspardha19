@@ -1,10 +1,12 @@
-import React,{ useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Back from './Back';
 import Loading from './Loading';
 import axios from 'axios';
 import Context from '../contextStore/Context';
 import { Link } from 'react-router-dom';
 const Sponsors = props => {
+  const titleSpon =
+    'https://yt3.ggpht.com/a-/AN66SAyMrep39LM9mP3UoP9divyz3PI2Y90cyJ7sDA=s900-mo-c-c0xffffffff-rj-k-no';
   document.body.style.overflow = 'auto';
   const { dispatch } = useContext(Context);
   const [istate, setState] = useState({
@@ -14,7 +16,7 @@ const Sponsors = props => {
     const getSponsors = async () => {
       try {
         const res = await axios.get(
-            'https://us-central1-techspardha-87928.cloudfunctions.net/api/sponsors'
+          'https://us-central1-techspardha-87928.cloudfunctions.net/api/sponsors'
         );
         setState({
           ...istate,
@@ -35,6 +37,7 @@ const Sponsors = props => {
     getSponsors();
   }, []);
   console.log(istate);
+
   return (
     <>
       <Loading title='sponsors' />
@@ -42,16 +45,19 @@ const Sponsors = props => {
         <Back history={props} />
         <h1>Sponsors</h1>
         <div>
-          {istate.sponsors
-            .map((sponsor, index) => (
-              <div key={index}>
+          {istate.sponsors.map((sponsor, index) => (
+            <div key={index}>
               <h1>{sponsor.sponsorSection}</h1>
-                  {sponsor.sponsors.map((url,index2) => (
-                    <img key={index2} className="sponsor" src={url.imageUrl} target={url.targetUrl}>
-                    </img>
-                ))}
-              </div>
-            ))}
+              {sponsor.sponsors.map((url, index2) => (
+                <img
+                  key={index2}
+                  className='sponsor'
+                  src={url.imageUrl}
+                  target={url.targetUrl}
+                ></img>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </>

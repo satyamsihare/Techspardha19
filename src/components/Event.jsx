@@ -5,6 +5,7 @@ import Loading from './Loading';
 import Typist from 'react-typist';
 import axios from 'axios';
 import Sound from 'react-sound';
+import { fromUnixTime, formatDistanceToNow, getDayOfYear } from 'date-fns';
 const Event = props => {
   document.body.scroll = 'yes';
   document.body.style.overflow = 'auto';
@@ -112,10 +113,14 @@ const Event = props => {
     console.log('Typing finished');
     setState2('STOPPED');
   };
+
+  const eventStartTime =
+    iState.startTime != null ? fromUnixTime(iState.startTime) : null;
+  console.log(formatDistanceToNow(eventStartTime));
   return (
     <>
       <Sound url='../../type2.mp3' playStatus={bool} />
-      <Loading title='devs' />
+      <Loading title={event} />
       <div className='c-container'>
         <Back history={props} />
         <span>
@@ -148,7 +153,7 @@ const Event = props => {
               <h3 onClick={register} className='register'>
                 [- REGISTER -]
               </h3>
-              <p>start time: {iState.startTime}</p>
+              <p>start time: </p>
               <p>venue: {iState.venue}</p>
               <span>
                 google_form:

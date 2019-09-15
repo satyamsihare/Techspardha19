@@ -316,7 +316,10 @@ input {
   margin: 15px 0;
 }
 
-
+.titlespon {
+  width: 300px;
+  width: 300px;
+}
 
 textarea {
   font-size: 1rem;
@@ -403,6 +406,13 @@ button {
 }
 
 @media (max-width:800px) {
+  .n-dev {
+    padding: 30px;
+    width: 100% !important;
+    height: auto;
+
+  }
+
   .title-main {
     margin-top: 100px;
     font-size: 6vw;
@@ -508,6 +518,8 @@ svg {
     font-size: 12px;
     margin-top: -5%;
   }
+
+
 
   div.user-img {
     top: -20%;
@@ -812,4 +824,31 @@ svg {
 
 .guest-card:active .guest-desc {
   opacity: 1;
+}
+
+/* dev page */
+
+.n-devs {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+
+
+.n-dev {
+  padding: 30px;
+  width: 40%;
+  border: 1px solid white;
+  margin: 20px;
+}
+
+.n-name {
+  text-align: center;
+}
+
+.g-icon {
+
+  text-align: center;
+
 }

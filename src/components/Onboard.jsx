@@ -41,8 +41,6 @@ const Onboard = props => {
         body,
         config
       );
-      console.log('yay', res);
-
       dispatch({
         type: 'ONBOARDED',
         payload: res.data
@@ -54,7 +52,7 @@ const Onboard = props => {
 
   return (
     <>
-      <Loading title='devs' />
+      <Loading title='onboard' />
       <div className='c-container'>
         <Back history={props} />
         <h1>/onboard</h1>
@@ -84,10 +82,10 @@ const Onboard = props => {
             <label htmlFor='year'>year</label>
             <div className='form-item'>
               <select name='year' onChange={handleChange} required='required'>
-                <option value='1'>1st</option>
-                <option value='2'>2nd </option>
-                <option value='3'>3rd</option>
-                <option value='4'>4th</option>
+                <option value='1st'>1st</option>
+                <option value='2nd'>2nd </option>
+                <option value='3rd'>3rd</option>
+                <option value='4th'>4th</option>
               </select>
             </div>
             <button>send</button>

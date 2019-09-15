@@ -45,9 +45,9 @@ const ContactDetails = props => {
     secContacts[0].people.length > 0 ? (
       secContacts[0].people.map((ppl, index) => (
         <div key={index}>
-          <img className='contact-img' src={ppl.imageUrl} alt={ppl.name} />
-          <p>{ppl.name}</p>
-          <p>{ppl.phoneNo}</p>
+          {/* <img className='contact-img' src={ppl.imageUrl} alt={ppl.name} /> */}
+          <p>- {ppl.name}</p>
+          <p>[{ppl.phoneNo}]</p>
         </div>
       ))
     ) : (

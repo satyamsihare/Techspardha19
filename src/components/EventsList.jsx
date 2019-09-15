@@ -16,6 +16,7 @@ const EventsList = () => {
           type: 'GET_EVENTCATEGORIES',
           payload: res.data.data
         });
+        console.log(res);
       } catch (error) {
         dispatch({
           type: 'ADD_ERROR',

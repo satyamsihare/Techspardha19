@@ -93,7 +93,7 @@ const Event = props => {
           dispatch({
             type: 'REMOVE_ERRORS'
           });
-        }, 3000);
+        }, 4000);
       } catch (error) {
         dispatch({
           type: 'ADD_ERROR',

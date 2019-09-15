@@ -18,6 +18,7 @@ import ContactDetails from './components/ContactDetails';
 import EventList from './components/EventList';
 import Event from './components/Event';
 import Onboard from './components/Onboard';
+import Dashboard from './components/Dashboard';
 
 function App() {
   const initialState = useContext(Context);
@@ -36,6 +37,7 @@ function App() {
         <HashRouter basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route path='/dashboard' component={Dashboard} />
             <Route path='/events/:category/:event' component={Event} />
             <Route path='/events/:category' component={EventList} />
             <Route path='/onboard' component={Onboard} />

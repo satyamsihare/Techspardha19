@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Baffle from 'baffle-react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import config from '../config.json';
 import Context from '../contextStore/Context';
@@ -39,6 +39,7 @@ const Home = props => {
     '/contact',
     '/devs'
   ];
+
   const homeList = list.map((item, index) => (
     <li key={index}>
       <Link to={item}>
@@ -72,7 +73,7 @@ const Home = props => {
     } catch (error) {
       dispatch({
         type: 'ADD_ERROR',
-        payload: { msg: error.data.message }
+        payload: { msg: 'auth error' }
       });
       setTimeout(() => {
         dispatch({
@@ -113,6 +114,7 @@ const Home = props => {
     }
     return text;
   }
+
   return (
     <div className='Lightning'>
       <Sound
@@ -131,7 +133,14 @@ const Home = props => {
             )}
           </div>
           <div className='sudo'>
-            {state.user && <p>@+{name(state.user.name)}/</p>}
+            {state.user && (
+              <p
+                className='pointer'
+                onClick={() => props.history.push('/dashboard')}
+              >
+                @+{name(state.user.name)}/
+              </p>
+            )}
             {isAuth ? (
               <div className='logout'>
                 <GoogleLogout
@@ -181,11 +190,9 @@ const Home = props => {
 
         <br />
         <div className='logo'>
-          <a href='#'>
-            <img className='blueLogo' src='techLogoGlitchBlue.png' />
-            <img className='redLogo' src='techLogoGlitchRed.png' />
-            <img className='mainLogo' src='techLogo.png' />
-          </a>
+          <img className='blueLogo' src='techLogoGlitchBlue.png' />
+          <img className='redLogo' src='techLogoGlitchRed.png' />
+          <img className='mainLogo' src='techLogo.png' />
         </div>
         <p className='devText'>Developed by Technobyte</p>
       </div>

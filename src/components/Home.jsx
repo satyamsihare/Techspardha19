@@ -9,6 +9,7 @@ import Loading from './Loading';
 import LinesRain from './LinesRain.jsx';
 import Sound from 'react-sound';
 import './dino.css';
+import TimelineHome from './Timeline.jsx';
 const Home = props => {
   // document.body.scroll = "yes";
   document.body.style.overflow = 'hidden';
@@ -189,6 +190,7 @@ const Home = props => {
         </div>
 
         <br />
+        <TimelineHome />
         <div className='logo'>
           <img className='blueLogo' src='techLogoGlitchBlue.png' />
           <img className='redLogo' src='techLogoGlitchRed.png' />

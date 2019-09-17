@@ -38,8 +38,27 @@ const Home = props => {
     '/contact',
     '/devs'
   ];
+
+  
+const tickAudioClip=()=>{
+  if (navigator.appName == "Microsoft Internet Explorer" && (navigator.appVersion.indexOf("MSIE 7")!=-1) || (navigator.appVersion.indexOf("MSIE 8")!=-1)) {
+    if (document.all)
+     {
+      document.all.sound.src = "click.mp3";
+     }
+    }
+    else {
+    {
+    var audio = document.getElementsByTagName("audio")[0];
+    audio.volume=0.3;
+    audio.play();
+    }
+    }
+}
+
   const homeList = list.map((item, index) => (
-    <li key={index}>
+    <li key={index}  onMouseOver={tickAudioClip} onClick={tickAudioClip}>
+      <div className="gt">&gt;&nbsp;</div>
       <Link to={item}>
         <Baffle speed={150} obfuscate={obfuscate.obs}>
           {item}
@@ -120,6 +139,10 @@ const Home = props => {
       // muted={true}
       loop
     />
+
+<audio >
+    <source src="bip.wav"></source>
+    </audio>
       <Loading title='home' />
       <LinesRain />
       <div className='container'>
@@ -175,9 +198,10 @@ const Home = props => {
               TECHSPARDHA/2019
             </Baffle>
           </div>
-          <ul>{homeList}</ul>
+          <script>
+          </script>
+          <ul className="homeList">{homeList}</ul>
         </div>
-
         <br />
         <div className='logo'>
           <a href='#'>
@@ -187,6 +211,9 @@ const Home = props => {
           </a>
         </div>
         <p className='devText'>Developed by Technobyte</p>
+        <style>
+          
+        </style>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useContext, useReducer } from 'react';
 import Context from './contextStore/Context';
 import reducer from './reducers/rootReducer';
 import Home from './components/Home';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, HashRouter, Switch } from 'react-router-dom';
 import EventCategories from './components/EventCategories';
 import Error404 from './components/Error404';
 import Devs from './components/Dev';
@@ -12,12 +12,13 @@ import Alert from './components/Alert';
 import Auth from './components/Auth';
 import Query from './components/Query';
 import About from './components/About';
-
+import Guest from './components/Guest';
 import Grains from './components//Grains';
 import ContactDetails from './components/ContactDetails';
 import EventList from './components/EventList';
 import Event from './components/Event';
 import Onboard from './components/Onboard';
+import Dashboard from './components/Dashboard';
 
 function App() {
   const initialState = useContext(Context);
@@ -33,9 +34,10 @@ function App() {
       >
         <Alert />
         <Grains />
-        <BrowserRouter>
+        <HashRouter basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route path='/dashboard' component={Dashboard} />
             <Route path='/events/:category/:event' component={Event} />
             <Route path='/events/:category' component={EventList} />
             <Route path='/onboard' component={Onboard} />
@@ -46,10 +48,11 @@ function App() {
             <Route path='/ask_queries' component={Query} />
             <Route path='/contact/:section' component={ContactDetails} />
             <Route path='/sponsors' component={Sponsors} />
+            <Route path='/guest_lectures' component={Guest} />
             <Route path='/contact' component={Contact} />
             <Route component={Error404} />{' '}
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
       </Context.Provider>
     </>
   );

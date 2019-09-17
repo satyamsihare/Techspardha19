@@ -17,7 +17,8 @@ const Context = createContext({
     eventCategoreis: [],
     errors: [],
     token: localStorage.getItem('TPToken'),
-    onBoard: false
+    onBoard: false,
+
 })
 
 export default Context;

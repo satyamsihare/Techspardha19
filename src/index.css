@@ -725,6 +725,19 @@ svg {
   transition-timing-function: cubic-bezier(0.23, 1, 0, 1);
 }
 
+.titleSponsor{
+  vertical-align: middle;
+  height: 100px;
+  font-size: 140%;
+  position: relative;
+  display: flex;
+  white-space: space nowrap;
+  overflow: auto;
+  transition-property: height, font-size;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0, 1);
+}
+
 .spnsrImgAndTitleSection{
   vertical-align: middle;
   height: 100px;
@@ -741,7 +754,7 @@ svg {
 .spnsrImgAndTitleSection:hover  {
   white-space: space nowrap;
   overflow: scroll;
-  height: 150px;
+  height: 120px;
   font-size: 250%;
   margin-top:.5%;
 }
@@ -751,6 +764,27 @@ svg {
   background: #fff;
   max-width: 100%;
   height: 100%;
+  font-size: 80%;
+  margin-right: 10px;
+  text-align: left;
+}
+
+
+.titleSponsor:hover{
+  white-space: space nowrap;
+  overflow: scroll;
+  height: 180px;
+  font-size: 250%;
+  margin-top:.5%;
+}
+
+
+.titleSponsor:hover .spsrTitle{
+  color: #0c0c0c;
+  background: #fff;
+  max-width: 100%;
+  height: 100%;
+  font-size: 120%;
   margin-right: 10px;
   text-align: left;
 }
@@ -771,7 +805,15 @@ div.sponsorImage {
     font-size: 120%;
   }
 
-  div.spnsrImgAndTitleSection:not(hover){
+  div.titleSponsor {
+    font-size: 15px;
+    height: 70px;
+    margin-bottom:5%;
+    margin-right: 5px; 
+  }
+  div.titleSponsor:hover, div.titleSponsor:active{
+    height: 150px;
+    font-size: 120%;
   }
 }
 

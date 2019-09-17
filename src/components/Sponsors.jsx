@@ -34,6 +34,18 @@ const Sponsors = props => {
     };
     getSponsors();
   }, []);
+  
+function titleSponsor(sponsor,index){
+  if(index==0)
+  {
+    return "titleSponsor";
+  }
+  else
+  {
+    return "spnsrImgAndTitleSection";
+  }
+}
+
   console.log(istate);
   return (
     <>
@@ -44,11 +56,11 @@ const Sponsors = props => {
         <div className="sponsor">
           {istate.sponsors
             .map((sponsor, index) => (
-              <div key={index} className="spnsrImgAndTitleSection">
+              <div key={index} className={titleSponsor(sponsor,index)}>
                 <span className="spsrTitle">{sponsor.sponsorSection}</span><span className="verticalLine"></span>
                   {sponsor.sponsors.map((url,index2) => (
                     <span className="spnsrImageDiv"><img key={index2} className="sponsorImage" src={url.imageUrl} target={url.targetUrl}>
-                    </img>&nbsp;</span>
+                    </img>&nbsp;<img src="1.png" className="sponsorImage"/>&nbsp;<img src="2.png" className="sponsorImage"/>&nbsp;<img src="3.png" className="sponsorImage"/>&nbsp;<img src="4.svg" className="sponsorImage"/>&nbsp;</span>
                 ))}
               </div>
             ))}

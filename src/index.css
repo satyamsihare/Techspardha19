@@ -90,10 +90,9 @@ html {
 
 
 body {
-  background: #0c0c0c;
+  color: #ffffff;
   font-family: 'Droid Sans Mono';
   font-weight: 100;
-  color: white;
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -739,14 +738,105 @@ svg {
   }
 }
 
+.sponsor{
+  position: absolute;
+  width: 100%;
+  height: 70%;
+}
+
+.sponsorImage{
+  height: 80%;
+}
+
+.spsrTitle{ 
+  pointer-events: none;
+  position: relative;
+  text-transform: capitalize;
+  font-weight: 500;
+  display: flex;
+  width: 33%;
+  height: fit-content;
+  transition-property: color, background;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0, 1);
+}
+
+.spnsrImageDiv{
+  height: inherit;
+  display: flex;
+  width: 67%;
+  transition-property: color, background;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0, 1);
+}
+
+.spnsrImgAndTitleSection{
+  vertical-align: middle;
+  height: 100px;
+  font-size: 140%;
+  position: relative;
+  display: flex;
+  white-space: space nowrap;
+  overflow: auto;
+  transition-property: height, font-size;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0, 1);
+}
+
+.spnsrImgAndTitleSection:hover  {
+  white-space: space nowrap;
+  overflow: scroll;
+  height: 150px;
+  font-size: 250%;
+  margin-top:.5%;
+}
+
+.spnsrImgAndTitleSection:hover .spsrTitle{
+  color: #0c0c0c;
+  background: #fff;
+  max-width: 100%;
+  height: 100%;
+  margin-right: 10px;
+  text-align: left;
+}
+
+@media only screen and (max-width: 600px) {
+div.sponsorImage {
+  height: 80%;
+}
+
+  div.spnsrImgAndTitleSection {
+    font-size: 15px;
+    height: 70px;
+    margin-bottom:5%;
+    margin-right: 5px; 
+  }
+  div.spnsrImgAndTitleSection:hover, div.spnsrImgAndTitleSection:active{
+    height: 100px;
+    font-size: 120%;
+  }
+
+  div.spnsrImgAndTitleSection:not(hover){
+  }
+}
+
+
+.homeList{
+  width: fit-content;
+}
+
+.homeList>li{
+  letter-spacing: 3px;
+  background: rgba(90, 90, 90, 0.6);
+  height: fit-content;
+  max-width: 0%;
+  /* transition-property:max-width, filter, transform; 
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out; */
+
 .pointer {
   text-decoration: underline;
   cursor: pointer;
-}
-
-.sponsor {
-  height: 100px;
-  width: 100px;
 }
 
 .guest {
@@ -833,4 +923,20 @@ svg {
 .timeline-img{
   height:100%;
   width:100%;
+}
+
+/* 
+.homeList>li:hover {
+  filter: brightness(200%);
+  transform: translateX(8px); 
+  max-width: 160px; 
+} */
+
+.homeList>li:hover .gt{
+  opacity:1;
+}
+
+.gt{
+  opacity: 0;
+  display: inline;
 }

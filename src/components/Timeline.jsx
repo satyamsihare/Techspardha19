@@ -82,8 +82,8 @@ const TimelineHome = () => {
             icon={<img className="timeline-img" src={getImage(event.eventCategory)} alt='e-img'></img>}
             contentStyle={{background:'transparent'}}
             bubbleStyle={{background:'black',
-            'border-style':'block',
-            'border-color':'black',
+            'borderStyle':'block',
+            'borderColor':'black',
           }}
           >
           <p className='timeline-content'>{event.eventName}</p>

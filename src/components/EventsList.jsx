@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import Context from '../contextStore/Context';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import Elist from '../EventImg';
 const EventsList = () => {
   const { state, dispatch } = useContext(Context);
 
@@ -16,6 +16,7 @@ const EventsList = () => {
           type: 'GET_EVENTCATEGORIES',
           payload: res.data.data
         });
+        console.log(res);
       } catch (error) {
         dispatch({
           type: 'ADD_ERROR',
@@ -30,12 +31,18 @@ const EventsList = () => {
     };
     getEvents();
   }, []);
-
   const categories = state.eventCategories ? (
     state.eventCategories.map((category, index) => (
       <div key={index}>
         <Link to={`/events/${category}`}>
-          <div>{category}</div>
+          <div>
+            {category}
+            <div className='event-c-img'>
+              <div>
+                <img src={Elist[index].img} alt='e-img' />
+              </div>
+            </div>
+          </div>
         </Link>
       </div>
     ))

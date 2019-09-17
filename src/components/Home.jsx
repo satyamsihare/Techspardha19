@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Baffle from 'baffle-react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import config from '../config.json';
 import Context from '../contextStore/Context';
@@ -9,10 +9,11 @@ import Loading from './Loading';
 import LinesRain from './LinesRain.jsx';
 import Sound from 'react-sound';
 import './dino.css';
+import TimelineHome from './Timeline.jsx';
 const Home = props => {
   // document.body.scroll = "yes";
   document.body.style.overflow = 'hidden';
-  const [bool,setState1]=useState("PLAYING");
+  const [bool, setState1] = useState('PLAYING');
   const { state, dispatch } = useContext(Context);
   const { isAuth } = state;
   const [obfuscate, setObfuscate] = useState({
@@ -33,11 +34,13 @@ const Home = props => {
   const list = [
     '/about',
     '/events',
+    '/guest_lectures',
     '/sponsors',
     '/ask_queries',
     '/contact',
     '/devs'
   ];
+
 
   
 const tickAudioClip=()=>{
@@ -90,7 +93,7 @@ const tickAudioClip=()=>{
     } catch (error) {
       dispatch({
         type: 'ADD_ERROR',
-        payload: { msg: error.data.message }
+        payload: { msg: 'auth error' }
       });
       setTimeout(() => {
         dispatch({
@@ -131,7 +134,9 @@ const tickAudioClip=()=>{
     }
     return text;
   }
+
   return (
+
     <div className="Lightning">
     <Sound
       url="rainstorm.wav"
@@ -143,6 +148,7 @@ const tickAudioClip=()=>{
 <audio >
     <source src="bip.wav"></source>
     </audio>
+
       <Loading title='home' />
       <LinesRain />
       <div className='container'>
@@ -153,7 +159,14 @@ const tickAudioClip=()=>{
             )}
           </div>
           <div className='sudo'>
-            {state.user && <p>@+{name(state.user.name)}/</p>}
+            {state.user && (
+              <p
+                className='pointer'
+                onClick={() => props.history.push('/dashboard')}
+              >
+                @+{name(state.user.name)}/
+              </p>
+            )}
             {isAuth ? (
               <div className='logout'>
                 <GoogleLogout
@@ -203,12 +216,11 @@ const tickAudioClip=()=>{
           <ul className="homeList">{homeList}</ul>
         </div>
         <br />
+        <TimelineHome />
         <div className='logo'>
-          <a href='#'>
-            <img className='blueLogo' src='techLogoGlitchBlue.png' />
-            <img className='redLogo' src='techLogoGlitchRed.png' />
-            <img className='mainLogo' src='techLogo.png' />
-          </a>
+          <img className='blueLogo' src='techLogoGlitchBlue.png' />
+          <img className='redLogo' src='techLogoGlitchRed.png' />
+          <img className='mainLogo' src='techLogo.png' />
         </div>
         <p className='devText'>Developed by Technobyte</p>
         <style>

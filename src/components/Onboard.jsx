@@ -57,7 +57,7 @@ const Onboard = props => {
         <Back history={props} />
         <h1>/onboard</h1>
         <h2>hey@{state.user.name}</h2>
-        <p>> welcome_to_techspatdha/2019</p>
+        <p>> welcome_to_techspardha/2019</p>
 
         <div className='form'>
           <form onSubmit={onSubmit}>

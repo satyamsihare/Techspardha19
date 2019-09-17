@@ -5,7 +5,7 @@ import axios from 'axios';
 import Context from '../contextStore/Context';
 import { Link } from 'react-router-dom';
 const Sponsors = props => {
-  document.body.style.overflow = 'auto';
+  // document.body.style.overflow = 'hidden';
   const { dispatch } = useContext(Context);
   const [istate, setState] = useState({
     sponsors: []
@@ -41,14 +41,14 @@ const Sponsors = props => {
       <div className='c-container'>
         <Back history={props} />
         <h1>Sponsors</h1>
-        <div>
+        <div className="sponsor">
           {istate.sponsors
             .map((sponsor, index) => (
-              <div key={index}>
-              <h1>{sponsor.sponsorSection}</h1>
+              <div key={index} className="spnsrImgAndTitleSection">
+                <span className="spsrTitle">{sponsor.sponsorSection}</span><span className="verticalLine"></span>
                   {sponsor.sponsors.map((url,index2) => (
-                    <img key={index2} className="sponsor" src={url.imageUrl} target={url.targetUrl}>
-                    </img>
+                    <span className="spnsrImageDiv"><img key={index2} className="sponsorImage" src={url.imageUrl} target={url.targetUrl}>
+                    </img>&nbsp;</span>
                 ))}
               </div>
             ))}

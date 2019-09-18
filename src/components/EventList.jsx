@@ -38,7 +38,6 @@ const EventList = props => {
     getEvents();
   }, []);
   const pause = function pausemusic() {
-    console.log('Typing finished');
     setState1('PAUSED');
   };
   if (istate.events.length <= 0) return <p>fetching events..</p>;

@@ -27,7 +27,6 @@ const Onboard = props => {
       ...formData,
       email: state.user.email
     });
-    console.log(body);
 
     try {
       const config = {
@@ -46,7 +45,15 @@ const Onboard = props => {
         payload: res.data
       });
     } catch (error) {
-      console.log(error);
+      dispatch({
+        type: 'ADD_ERROR',
+        payload: { msg: 'error: try refreshing...' }
+      });
+      setTimeout(() => {
+        dispatch({
+          type: 'REMOVE_ERRORS'
+        });
+      }, 3000);
     }
   };
 
@@ -67,6 +74,7 @@ const Onboard = props => {
                 name='phone'
                 onChange={handleChange}
                 type='text'
+                maxLength='10'
                 required='required'
               />
             </div>

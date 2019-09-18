@@ -37,6 +37,7 @@ const Home = props => {
     '/guest_lectures',
     '/sponsors',
     '/ask_queries',
+    '/timeline',
     '/contact',
     '/devs'
   ];
@@ -60,8 +61,10 @@ const tickAudioClip=()=>{
 }
 
   const homeList = list.map((item, index) => (
-    <li key={index}  onMouseOver={tickAudioClip} onClick={tickAudioClip}>
+
+    <li key={index} className={item === '/timeline' ? 'yo' : null} onMouseOver={tickAudioClip} onClick={tickAudioClip}>
       <div className="gt">&gt;&nbsp;</div>
+
       <Link to={item}>
         <Baffle speed={150} obfuscate={obfuscate.obs}>
           {item}
@@ -103,7 +106,15 @@ const tickAudioClip=()=>{
     }
   };
   const onfailure = () => {
-    console.log('nopie');
+    dispatch({
+      type: 'ADD_ERROR',
+      payload: { msg: 'auth error' }
+    });
+    setTimeout(() => {
+      dispatch({
+        type: 'REMOVE_ERRORS'
+      });
+    }, 3000);
   };
 
   const logout = () => {
@@ -216,7 +227,9 @@ const tickAudioClip=()=>{
           <ul className="homeList">{homeList}</ul>
         </div>
         <br />
-        <TimelineHome />
+        <div className='no-mobile'>
+          <TimelineHome />
+        </div>
         <div className='logo'>
           <img className='blueLogo' src='techLogoGlitchBlue.png' />
           <img className='redLogo' src='techLogoGlitchRed.png' />

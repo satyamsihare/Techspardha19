@@ -1,4 +1,4 @@
-import React,{ useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Back from './Back';
 import Loading from './Loading';
 import axios from 'axios';
@@ -14,7 +14,7 @@ const Guest = props => {
     const getGuests = async () => {
       try {
         const res = await axios.get(
-            'https://us-central1-techspardha-87928.cloudfunctions.net/api/lectures'
+          'https://us-central1-techspardha-87928.cloudfunctions.net/api/lectures'
         );
         setState({
           ...istate,
@@ -34,34 +34,33 @@ const Guest = props => {
     };
     getGuests();
   }, []);
-  console.log(istate.guests.name);
+
   const dguests = istate.guests ? (
     istate.guests.map((guest, index) => (
-      <div className="guest-card" key={index}>
-          <div className="guest-img">
-            <img className="guest" src={guest.imageUrl}></img>
-
-          </div>
-          <p className="guest-name">&lt;{guest.name}/&gt;</p>
-          <div className="guest-desc">
-          <p className="date">{guest.date}, {guest.time}</p>
+      <div className='guest-card' key={index}>
+        <div className='guest-img'>
+          <img className='guest' src={guest.imageUrl}></img>
+        </div>
+        <p className='guest-name'>&lt;{guest.name}/&gt;</p>
+        <div className='guest-desc'>
+          <p className='date'>
+            {guest.date}, {guest.time}
+          </p>
           <p>{guest.desc}</p>
-          </div>
+        </div>
       </div>
     ))
   ) : (
     <h1>Loading</h1>
   );
 
-
-  console.log(istate);
   return (
-    <div className="hide-overflow">
+    <div className='hide-overflow'>
       <Loading title='guest_lectures' />
       <div className='c-container'>
         <Back history={props} />
         <h1>Guest Lectures</h1>
-          <div className='yo horizontal-scroll-wrapper squares'>{dguests}</div>
+        <div className='yo horizontal-scroll-wrapper squares'>{dguests}</div>
       </div>
     </div>
   );

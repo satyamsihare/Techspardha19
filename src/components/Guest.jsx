@@ -34,7 +34,7 @@ const Guest = props => {
     };
     getGuests();
   }, []);
-
+  
   const dguests = istate.guests ? (
     istate.guests.map((guest, index) => (
       <div className='guest-card' key={index}>
@@ -55,14 +55,9 @@ const Guest = props => {
   );
 
   return (
-    <div className='hide-overflow'>
-      <Loading title='guest_lectures' />
-      <div className='c-container'>
-        <Back history={props} />
-        <h1>Guest Lectures</h1>
+    <>
         <div className='yo horizontal-scroll-wrapper squares'>{dguests}</div>
-      </div>
-    </div>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import React,{ useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Back from './Back';
 import Loading from './Loading';
 import axios from 'axios';
@@ -14,7 +14,7 @@ const Sponsors = props => {
     const getSponsors = async () => {
       try {
         const res = await axios.get(
-            'https://us-central1-techspardha-87928.cloudfunctions.net/api/sponsors'
+          'https://us-central1-techspardha-87928.cloudfunctions.net/api/sponsors'
         );
         setState({
           ...istate,
@@ -34,13 +34,14 @@ const Sponsors = props => {
     };
     getSponsors();
   }, []);
-  console.log(istate);
+
   return (
     <>
       <Loading title='sponsors' />
       <div className='c-container'>
         <Back history={props} />
         <h1>Sponsors</h1>
+
         <div className="sponsor">
           {istate.sponsors
             .map((sponsor, index) => (
@@ -52,6 +53,7 @@ const Sponsors = props => {
                 ))}
               </div>
             ))}
+
         </div>
       </div>
     </>

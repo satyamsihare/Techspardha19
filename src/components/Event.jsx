@@ -75,7 +75,7 @@ const Event = props => {
           dispatch({
             type: 'REMOVE_ERRORS'
           });
-        }, 1000);
+        }, 3000);
         const res = await axios.put(
           'https://us-central1-techspardha-87928.cloudfunctions.net/api/user/event',
           body,
@@ -93,7 +93,7 @@ const Event = props => {
           dispatch({
             type: 'REMOVE_ERRORS'
           });
-        }, 4000);
+        }, 3000);
       } catch (error) {
         dispatch({
           type: 'ADD_ERROR',
@@ -109,13 +109,13 @@ const Event = props => {
   };
 
   const pause = function pausemusic() {
-    console.log('Typing finished');
     setState2('STOPPED');
   };
+
   return (
     <>
       <Sound url='../../type2.mp3' playStatus={bool} />
-      <Loading title='devs' />
+      <Loading title={event} />
       <div className='c-container'>
         <Back history={props} />
         <span>
@@ -148,7 +148,7 @@ const Event = props => {
               <h3 onClick={register} className='register'>
                 [- REGISTER -]
               </h3>
-              <p>start time: {iState.startTime}</p>
+              <p>start time: </p>
               <p>venue: {iState.venue}</p>
               <span>
                 google_form:

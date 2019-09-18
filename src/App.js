@@ -19,11 +19,12 @@ import EventList from './components/EventList';
 import Event from './components/Event';
 import Onboard from './components/Onboard';
 import Dashboard from './components/Dashboard';
+import EventTimeline from './components/EventTimeline';
 
 function App() {
   const initialState = useContext(Context);
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
+  // console.log(state);
   return (
     <>
       <Context.Provider
@@ -36,24 +37,25 @@ function App() {
         <Grains />
         <HashRouter basename={process.env.PUBLIC_URL}>
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/dashboard' component={Dashboard} />
-            <Route path='/events/:category/:event' component={Event} />
-            <Route path='/events/:category' component={EventList} />
-            <Route path='/onboard' component={Onboard} />
-            <Route path='/events' component={EventCategories} />
-            <Route path='/about' component={About} />
-            <Route path='/devs' component={Devs} />
-            <Route path='/auth' component={Auth} />
-            <Route path='/ask_queries' component={Query} />
-            <Route path='/contact/:section' component={ContactDetails} />
-            <Route path='/sponsors' component={Sponsors} />
-            <Route path='/guest_lectures' component={Guest} />
-            <Route path='/contact' component={Contact} />
+            <Route exact path='/' component={Home} />{' '}
+            <Route path='/dashboard' component={Dashboard} />{' '}
+            <Route path='/timeline' component={EventTimeline} />{' '}
+            <Route path='/events/:category/:event' component={Event} />{' '}
+            <Route path='/events/:category' component={EventList} />{' '}
+            <Route path='/onboard' component={Onboard} />{' '}
+            <Route path='/events' component={EventCategories} />{' '}
+            <Route path='/about' component={About} />{' '}
+            <Route path='/devs' component={Devs} />{' '}
+            <Route path='/auth' component={Auth} />{' '}
+            <Route path='/ask_queries' component={Query} />{' '}
+            <Route path='/contact/:section' component={ContactDetails} />{' '}
+            <Route path='/sponsors' component={Sponsors} />{' '}
+            <Route path='/guest_lectures' component={Guest} />{' '}
+            <Route path='/contact' component={Contact} />{' '}
             <Route component={Error404} />{' '}
-          </Switch>
-        </HashRouter>
-      </Context.Provider>
+          </Switch>{' '}
+        </HashRouter>{' '}
+      </Context.Provider>{' '}
     </>
   );
 }

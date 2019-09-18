@@ -23,7 +23,6 @@ const Dashboard = props => {
 
     getRegisteredEvents();
   }, []);
-  console.log(istate);
 
   const eventList =
     istate.length > 0 ? (
@@ -38,7 +37,7 @@ const Dashboard = props => {
         </div>
       ))
     ) : (
-      <p>fetching registered events...</p>
+      <p>no registered events.</p>
     );
 
   const { phone, name, college, year } = state.user;

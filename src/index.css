@@ -161,6 +161,15 @@ a {
   right: 4%;
 }
 
+.timeline {
+  overflow: scroll;
+  height: 80%;
+  width: 40%;
+  position: fixed;
+  right: 0%;
+  top: 14%;
+}
+
 @media only screen and (max-width: 600px) {
   p.devText {
     font-size: 10px;
@@ -315,7 +324,10 @@ input {
   margin: 15px 0;
 }
 
-
+.titlespon {
+  width: 300px;
+  width: 300px;
+}
 
 textarea {
   font-size: 1rem;
@@ -401,26 +413,8 @@ button {
   cursor: pointer;
 }
 
-@media (max-width:800px) {
-  .title-main {
-    margin-top: 100px;
-    font-size: 6vw;
-    letter-spacing: 5px;
-  }
-
-  .horizontal-scroll-wrapper {
-    height: 900px;
-  }
-
-  .container-l {
-    position: absolute;
-    height: 100%;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    overflow: hidden !important;
-    background: transparent;
-  }
+.no-desktop {
+  display: none;
 }
 
 
@@ -429,7 +423,6 @@ button {
   justify-content: center;
   align-items: center;
 }
-
 
 
 
@@ -507,6 +500,8 @@ svg {
     font-size: 12px;
     margin-top: -5%;
   }
+
+
 
   div.user-img {
     top: -20%;
@@ -904,25 +899,103 @@ div.sponsorImage {
   opacity: 1;
 }
 
-.timeline {
-  overflow:scroll;
-  height:80%;
-  width:40%;
-  position: fixed;
-  right:0%;
-  top:10%;
+/* dev page */
+
+.n-devs {
+  display: flex;
+  flex-wrap: wrap;
+
 }
-.timeline-title{
+
+
+
+.n-dev {
+  padding: 30px;
+  width: 40%;
+  border: 1px solid white;
+  margin: 20px;
+}
+
+.n-name {
+  text-align: center;
+}
+
+.g-icon {
+
+  text-align: center;
+
+}
+
+
+.timeline-title {
   font-size: 120%;
 }
+
 .timeline-content {
   font-size: 150%;
   text-align: left;
 }
 
-.timeline-img{
-  height:100%;
-  width:100%;
+.timeline-img {
+  height: 100%;
+  width: 100%;
+}
+
+
+.yo {
+  display: none !important;
+}
+
+.tS {
+  width: 500px;
+  height: 500px;
+}
+
+@media (max-width:800px) {
+  .timeline {
+    position: absolute !important;
+    left: 0 !important;
+    width: 100%;
+  }
+
+  .yo {
+    display: block !important;
+  }
+
+  .no-mobile {
+    display: none;
+  }
+
+  .no-desktop {
+    display: block;
+  }
+
+  .n-dev {
+    padding: 30px;
+    width: 100% !important;
+    height: auto;
+
+  }
+
+  .title-main {
+    margin-top: 100px;
+    font-size: 6vw;
+    letter-spacing: 5px;
+  }
+
+  .horizontal-scroll-wrapper {
+    height: 900px;
+  }
+
+  .container-l {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden !important;
+    background: transparent;
+  }
 }
 
 /*
@@ -940,3 +1013,4 @@ div.sponsorImage {
   opacity: 0;
   display: inline;
 }
+

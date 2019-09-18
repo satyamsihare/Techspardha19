@@ -31,7 +31,7 @@ const Dev = props => {
     };
     getDevs();
   }, []);
-  console.log(istate);
+
   return (
     <>
       <Loading title='devs' />

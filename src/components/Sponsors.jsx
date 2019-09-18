@@ -5,8 +5,6 @@ import axios from 'axios';
 import Context from '../contextStore/Context';
 import { Link } from 'react-router-dom';
 const Sponsors = props => {
-  const titleSpon =
-    'https://yt3.ggpht.com/a-/AN66SAyMrep39LM9mP3UoP9divyz3PI2Y90cyJ7sDA=s900-mo-c-c0xffffffff-rj-k-no';
   document.body.style.overflow = 'auto';
   const { dispatch } = useContext(Context);
   const [istate, setState] = useState({
@@ -36,7 +34,6 @@ const Sponsors = props => {
     };
     getSponsors();
   }, []);
-  console.log(istate);
 
   return (
     <>

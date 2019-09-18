@@ -37,12 +37,13 @@ const Home = props => {
     '/guest_lectures',
     '/sponsors',
     '/ask_queries',
+    '/timeline',
     '/contact',
     '/devs'
   ];
 
   const homeList = list.map((item, index) => (
-    <li key={index}>
+    <li key={index} className={item === '/timeline' ? 'yo' : null}>
       <Link to={item}>
         <Baffle speed={150} obfuscate={obfuscate.obs}>
           {item}
@@ -84,7 +85,15 @@ const Home = props => {
     }
   };
   const onfailure = () => {
-    console.log('nopie');
+    dispatch({
+      type: 'ADD_ERROR',
+      payload: { msg: 'auth error' }
+    });
+    setTimeout(() => {
+      dispatch({
+        type: 'REMOVE_ERRORS'
+      });
+    }, 3000);
   };
 
   const logout = () => {
@@ -190,7 +199,9 @@ const Home = props => {
         </div>
 
         <br />
-        <TimelineHome />
+        <div className='no-mobile'>
+          <TimelineHome />
+        </div>
         <div className='logo'>
           <img className='blueLogo' src='techLogoGlitchBlue.png' />
           <img className='redLogo' src='techLogoGlitchRed.png' />

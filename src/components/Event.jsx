@@ -5,7 +5,6 @@ import Loading from './Loading';
 import Typist from 'react-typist';
 import axios from 'axios';
 import Sound from 'react-sound';
-import { fromUnixTime, formatDistanceToNow, getDayOfYear } from 'date-fns';
 const Event = props => {
   document.body.scroll = 'yes';
   document.body.style.overflow = 'auto';
@@ -76,7 +75,7 @@ const Event = props => {
           dispatch({
             type: 'REMOVE_ERRORS'
           });
-        }, 1000);
+        }, 3000);
         const res = await axios.put(
           'https://us-central1-techspardha-87928.cloudfunctions.net/api/user/event',
           body,
@@ -94,7 +93,7 @@ const Event = props => {
           dispatch({
             type: 'REMOVE_ERRORS'
           });
-        }, 4000);
+        }, 3000);
       } catch (error) {
         dispatch({
           type: 'ADD_ERROR',
@@ -110,13 +109,9 @@ const Event = props => {
   };
 
   const pause = function pausemusic() {
-    console.log('Typing finished');
     setState2('STOPPED');
   };
 
-  const eventStartTime =
-    iState.startTime != null ? fromUnixTime(iState.startTime) : null;
-  console.log(formatDistanceToNow(eventStartTime));
   return (
     <>
       <Sound url='../../type2.mp3' playStatus={bool} />

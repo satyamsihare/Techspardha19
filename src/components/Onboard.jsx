@@ -27,7 +27,6 @@ const Onboard = props => {
       ...formData,
       email: state.user.email
     });
-    console.log(body);
 
     try {
       const config = {
@@ -46,7 +45,15 @@ const Onboard = props => {
         payload: res.data
       });
     } catch (error) {
-      console.log(error);
+      dispatch({
+        type: 'ADD_ERROR',
+        payload: { msg: 'error: try refreshing...' }
+      });
+      setTimeout(() => {
+        dispatch({
+          type: 'REMOVE_ERRORS'
+        });
+      }, 3000);
     }
   };
 
@@ -57,7 +64,7 @@ const Onboard = props => {
         <Back history={props} />
         <h1>/onboard</h1>
         <h2>hey@{state.user.name}</h2>
-        <p>> welcome_to_techspatdha/2019</p>
+        <p>> welcome_to_techspardha/2019</p>
 
         <div className='form'>
           <form onSubmit={onSubmit}>

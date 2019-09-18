@@ -43,7 +43,7 @@ const Home = props => {
   ];
 
 
-  
+
 const tickAudioClip=()=>{
   if (navigator.appName == "Microsoft Internet Explorer" && (navigator.appVersion.indexOf("MSIE 7")!=-1) || (navigator.appVersion.indexOf("MSIE 8")!=-1)) {
     if (document.all)
@@ -62,7 +62,7 @@ const tickAudioClip=()=>{
 
   const homeList = list.map((item, index) => (
 
-    <li key={index} className={item === '/timeline' ? 'yo' : null} onMouseOver={tickAudioClip} onClick={tickAudioClip}>
+    <li key={index} className={item === '/timeline' ? 'yoyo' : null} onMouseOver={tickAudioClip} onClick={tickAudioClip}>
       <div className="gt">&gt;&nbsp;</div>
 
       <Link to={item}>
@@ -237,7 +237,7 @@ const tickAudioClip=()=>{
         </div>
         <p className='devText'>Developed by Technobyte</p>
         <style>
-          
+
         </style>
       </div>
     </div>

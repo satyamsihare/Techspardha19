@@ -5,6 +5,7 @@ import Loading from './Loading';
 import Typist from 'react-typist';
 import axios from 'axios';
 import Sound from 'react-sound';
+import dateFormat from 'dateformat';
 const Event = props => {
   document.body.scroll = 'yes';
   document.body.style.overflow = 'auto';
@@ -107,7 +108,16 @@ const Event = props => {
       }
     }
   };
-
+  function time(timestamp) {
+    var myDate = new Date(timestamp);
+    var x = dateFormat(myDate, 'hh:MM');
+    return x;
+  }
+  function date(timestamp) {
+    var myDate = new Date(timestamp);
+    var x = dateFormat(myDate, "dddd, dd mmm");
+    return x;
+  }
   const pause = function pausemusic() {
     setState2('STOPPED');
   };
@@ -148,7 +158,7 @@ const Event = props => {
               <h3 onClick={register} className='register'>
                 [- REGISTER -]
               </h3>
-              <p>start time: </p>
+              <p>start time: {time(iState.startTime).toString()}, {date(iState.startTime).toString()} </p>
               <p>venue: {iState.venue}</p>
               <span>
                 google_form:

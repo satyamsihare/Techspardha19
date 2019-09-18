@@ -3,6 +3,7 @@ import Loading from './Loading';
 import Back from './Back';
 import Context from '../contextStore/Context';
 import axios from 'axios';
+import dateFormat from 'dateformat';
 const Dashboard = props => {
   const { state, dispatch } = useContext(Context);
   const [istate, setState] = useState([]);
@@ -23,23 +24,43 @@ const Dashboard = props => {
 
     getRegisteredEvents();
   }, []);
+  function time(timestamp) {
+    var myDate = new Date(timestamp);
+    var x = dateFormat(myDate, 'hh:MM');
+    return x;
+  }
+  function date(timestamp) {
+    var myDate = new Date(timestamp);
+    var x = dateFormat(myDate, "dddd, dd mmm");
+    return x;
+  }
+  
+  istate.sort((x, y) => {
+    var a = new Date(x.startTime);
+    var b = new Date(y.startTime);
+      console.log("sort");
+    return a - b;
+    if (a > b) return 1;
+    if (a < b) return -1;
+    return 0;
 
+  });
   const eventList =
     istate.length > 0 ? (
-      istate.map(event => (
-        <div className='reg-eve'>
+      istate.map((event,index) => (
+        <div className='reg-eve' key={index}>
           <div>
             <p>{event.eventName}</p>
           </div>
           <div>
-            <p>{event.startTime}</p>
+            <p>{time(event.startTime)},  {date(event.startTime)}</p>
           </div>
         </div>
       ))
     ) : (
       <p>no registered events.</p>
     );
-
+console.log(istate);
   const { phone, name, college, year } = state.user;
   return (
     <>

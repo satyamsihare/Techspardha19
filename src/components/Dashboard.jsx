@@ -5,6 +5,8 @@ import Context from '../contextStore/Context';
 import axios from 'axios';
 import dateFormat from 'dateformat';
 const Dashboard = props => {
+  document.body.scroll = 'yes';
+  document.body.style.overflow = 'auto';
   const { state, dispatch } = useContext(Context);
   const [istate, setState] = useState([]);
   useEffect(() => {
@@ -45,6 +47,7 @@ const Dashboard = props => {
     return 0;
 
   });
+  console.log(istate);
   const eventList =
     istate.length > 0 ? (
       istate.map((event,index) => (
@@ -69,17 +72,17 @@ console.log(istate);
         <Back history={props} />
         <h1>/dashboard</h1>
         <div className='details'>
-          <h3>sudo@{name}</h3>
+          <h3>name> {name}</h3>
           <p>
-            <span className='bold'>college></span>
+            <span className='bold'>college> </span>
             {college}
           </p>
           <p>
-            <span className='bold'>phone></span>
+            <span className='bold'>phone> </span>
             {phone}
           </p>
           <p>
-            <span className='bold'>year></span>
+            <span className='bold'>year>  </span>
             {year}
           </p>
         </div>

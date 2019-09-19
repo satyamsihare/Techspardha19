@@ -890,12 +890,14 @@ div.sponsorImage {
   text-align: center;
   margin-top: 5%;
   margin-bottom: auto;
-  opacity: 1;
+  display: block;
+  opacity:1;
   transition: opacity .15s ease-in;
 }
 
 .guest-name {
   opacity: 1;
+  display:block;
   text-align: center;
   transition: opacity .15s ease-in;
 }
@@ -912,31 +914,38 @@ div.sponsorImage {
 
 .guest-desc {
   opacity: 0;
+  display: none;
   transition: opacity .15s ease-out;
 }
 
 .guest-card:hover .guest-img {
+  display: none;
   opacity: 0;
 }
 
 .guest-card:hover .guest-name {
+  display: none;
   opacity: 0;
 }
 
 .guest-card:hover .guest-desc {
+  display: block;
   opacity: 1;
   overflow: scroll;
 }
 
 .guest-card:active .guest-img {
+  display: none;
   opacity: 0;
 }
 
 .guest-card:active .guest-name {
+  display: none;
   opacity: 0;
 }
 
 .guest-card:active .guest-desc {
+  display: block;
   opacity: 1;
 }
 

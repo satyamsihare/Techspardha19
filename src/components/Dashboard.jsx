@@ -34,7 +34,7 @@ const Dashboard = props => {
     var x = dateFormat(myDate, "dddd, dd mmm");
     return x;
   }
-  
+
   istate.sort((x, y) => {
     var a = new Date(x.startTime);
     var b = new Date(y.startTime);
@@ -49,7 +49,7 @@ const Dashboard = props => {
     istate.length > 0 ? (
       istate.map((event,index) => (
         <div className='reg-eve' key={index}>
-          <div>
+          <div className="reg-eve-name">
             <p>{event.eventName}</p>
           </div>
           <div>
@@ -63,9 +63,9 @@ const Dashboard = props => {
 console.log(istate);
   const { phone, name, college, year } = state.user;
   return (
-    <>
+    <div className="dashboard">
       <Loading title='dashboard' />
-      <div className='c-container'>
+      <div className='c-container .overflow-dash'>
         <Back history={props} />
         <h1>/dashboard</h1>
         <div className='details'>
@@ -84,11 +84,11 @@ console.log(istate);
           </p>
         </div>
         <div className='reg-events'>
-          <h4>registered_events:</h4>
+          <h4>@registered_events:</h4>
           {eventList}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

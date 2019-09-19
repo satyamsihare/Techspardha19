@@ -22,6 +22,21 @@
 .reg-eve {
   display: flex;
   justify-content: space-between;
+  /* overflow: scroll; */
+}
+
+@media (max-width:600px) {
+    div.reg-eve{
+      display:block;
+    }
+}
+
+.reg-eve-name{
+  font-size: 150%;
+}
+
+.reg-events{
+  margin-bottom: 15%;
 }
 
 .details {
@@ -118,12 +133,28 @@ body {
 .title-main {
   letter-spacing: 9px;
   margin-bottom: 20px;
-  font-size: 1.5vw;
+  font-size: 2.3vw;
 }
 
 .Menu {
   position: relative;
-  margin-top: 15%;
+  margin-top: 17%;
+  margin-left: 30%;
+}
+
+@media only screen and (max-width:800px) {
+  div.Menu{
+    /* position: absolute; */
+    top:10%;
+    left:-27%;
+  }
+  span.menu-list{
+    font-size: 3.2vw;
+  }
+}
+
+.menu-list{
+  font-size: 1.3vw;
 }
 
 .Menu>ul {
@@ -164,10 +195,10 @@ a {
 .timeline {
   overflow-y: scroll;
   height: 80%;
-  width: 40%;
+  width: 30%;
   position: fixed;
-  right: 0%;
-  top: 14%;
+  left:5%;
+  top: 10%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -394,6 +425,7 @@ button {
 
 .about {
   font-size: 80%;
+  text-align: justify;
 }
 
 .hide-overflow {
@@ -840,7 +872,7 @@ div.sponsorImage {
   height: 80%;
   width: 80%;
   text-align: center;
-  filter: grayscale(85%);
+  /* filter: grayscale(85%); */
 }
 
 .guest-desc {

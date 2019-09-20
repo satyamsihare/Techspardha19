@@ -25,7 +25,7 @@
   overflow: scroll;
 }
 
-@media (max-width:600px) {
+@media (max-width:800px) {
     div.reg-eve{
       display:block;
     }
@@ -97,6 +97,7 @@ html {
   margin: 0;
   padding: 0;
   -ms-overflow-style:none;
+  -moz-ooverflow-style:none;
 }
 
 * {
@@ -133,29 +134,46 @@ body {
 
 .title-main {
   letter-spacing: 9px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  /* position: absolute; */
   font-size: 2.3vw;
+  /* top:-20%; */
+  /* left:3%; */
+  text-align: center;
+  margin-bottom: 10%;
+  margin-top: 10%;
 }
+
+
 
 .Menu {
   position: relative;
   margin-top: 17%;
   margin-left: 30%;
+  /* border-style: solid; */
+  padding: 0%;
+  padding-top:5%;
 }
 
 @media only screen and (max-width:800px) {
   div.Menu{
     /* position: absolute; */
-    top:10%;
-    left:-27%;
+    /* margin-top: -60px; */
+    top:20%;
+    left:-30%;
+    /* padding-top:-30%; */
   }
   span.menu-list{
     font-size: 3.2vw;
   }
+  div.title-main{
+    margin: 0%;
+    /* margin-bottom: -20%; */
+  }
 }
 
 .menu-list{
-  font-size: 1.3vw;
+  font-size: 1.2vw;
 }
 
 .Menu>ul {
@@ -202,13 +220,13 @@ a {
   top: 3%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   p.devText {
     font-size: 10px;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   p.devText {
     font-size: 10px;
   }
@@ -244,6 +262,7 @@ select {
 .back {
   font-size: 1.6rem;
   margin-bottom: 20px;
+  width: fit-content;
 }
 
 .back:hover {
@@ -301,7 +320,7 @@ div {
   border: 1px solid white;
 }
 
-@media only screen and (max-width:600px) {
+@media only screen and (max-width:800px) {
   div.squares {
     padding: 270px 50px 140px 140px;
   }
@@ -422,6 +441,11 @@ button {
 
 .cnt-item {
   cursor: pointer;
+  width: fit-content;
+}
+
+.event-ul {
+  width: fit-content;
 }
 
 .about {
@@ -530,7 +554,7 @@ svg {
   margin-left: 73%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   div.sudo {
     font-size: 12px;
     margin-top: -5%;
@@ -568,7 +592,7 @@ svg {
   right: 3%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   div.logo {
     right: 2%;
   }
@@ -843,6 +867,12 @@ svg {
   font-size: 150%;
 }
 
+
+/* @media only screen and (max-width: 800px) {
+div.sponsorImage {
+  height: 80%;
+  }
+} */
 .sponsor:hover .sectionAndImage:not(:hover){
   filter: opacity(0.8);
 }
@@ -889,6 +919,16 @@ svg {
 
 .homeList{
   width: fit-content;
+  margin-top: 10%;
+  margin: auto;
+  /* text-align: center; */
+}
+
+@media screen and (max-width:800px){
+  ul.homeList{
+    margin-left: 0%;
+    margin-top: 15%;
+  }
 }
 
 .homeList>li{
@@ -931,21 +971,21 @@ svg {
   margin-bottom: auto;
   display: block;
   opacity:1;
-  transition: opacity .15s ease-in;
+  transition: opacity .25s ease-in;
 }
 
 .guest-name {
   opacity: 1;
   display:block;
   text-align: center;
-  transition: opacity .15s ease-in;
+  transition: opacity .25s ease-in;
 }
 
 .date {
   font-size: 18px;
 }
 
-@media (max-width:600px) {
+@media (max-width:800px) {
   div.guest-card:hover .guest-desc{
     overflow: scroll;
   }
@@ -954,7 +994,7 @@ svg {
 .guest-desc {
   opacity: 0;
   display: none;
-  transition: opacity .15s ease-out;
+  transition: opacity .25s ease-out;
 }
 
 .guest-card:hover .guest-img {
@@ -1017,11 +1057,11 @@ svg {
 
 
 .timeline-title {
-  font-size: 120%;
+  font-size: 100%;
 }
 
 .timeline-content {
-  font-size: 150%;
+  font-size: 120%;
   text-align: left;
 }
 
@@ -1029,7 +1069,16 @@ svg {
   height: 100%;
   width: 100%;
 }
-
+/*
+.timeline-dash {
+  width: 20px;
+  height: 2px;
+  margin-left: -17.5%;
+  position: relative;
+  float: left;
+  background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,1), rgba(255,255,255,0.1));
+    background: white;
+} */
 
 .yoyo {
   display: none !important;
@@ -1103,4 +1152,10 @@ svg {
 .gt{
   opacity: 0;
   display: inline;
+}
+
+.query-send{
+  border-style: solid;
+  border-width: 0.1px;
+  padding: 1%;
 }

@@ -51,7 +51,7 @@ const EventList = props => {
         <h1>{`/${category}`}</h1>
 
         <div className='ievent-list'>
-          <ul>
+          <ul className="event-ul">
             {istate.events
               .filter(event => event.eventCategory === category)
               .map((event, index) => (

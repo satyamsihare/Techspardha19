@@ -28,7 +28,7 @@ const Dashboard = props => {
   }, []);
   function time(timestamp) {
     var myDate = new Date(timestamp);
-    var x = dateFormat(myDate, 'hh:MM');
+    var x = dateFormat(myDate, 'hh:MM TT');
     return x;
   }
   function date(timestamp) {

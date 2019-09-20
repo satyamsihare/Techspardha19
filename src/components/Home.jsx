@@ -10,6 +10,7 @@ import LinesRain from './LinesRain.jsx';
 import Sound from 'react-sound';
 import './dino.css';
 import TimelineHome from './Timeline.jsx';
+import './btn.scss';
 const Home = props => {
   // document.body.scroll = "yes";
   document.body.style.overflow = 'hidden';
@@ -206,7 +207,7 @@ const Home = props => {
             )}
           </div>
         </div>
-        <div className='Menu'>
+        <div className='Menu bb'>
           <div className='title-main'>
             <Baffle speed={150} obfuscate={obfuscate.obs}>
               TECHSPARDHA/2019

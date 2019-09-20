@@ -116,7 +116,7 @@ const Query = props => {
             />
           </div>
           <ReCAPTCHA sitekey={config.RKEY} theme={'dark'} onChange={captcha} />
-          <button type='submit'>send</button>
+          <button type='submit' className='query-send'>send</button>
         </form>
       </div>
     </>

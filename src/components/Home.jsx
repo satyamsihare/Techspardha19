@@ -37,35 +37,39 @@ const Home = props => {
     '/guest_lectures',
     '/sponsors',
     '/ask_queries',
+    '/timeline',
     '/contact',
     '/devs'
   ];
 
 
-  
-const tickAudioClip=()=>{
-  if (navigator.appName == "Microsoft Internet Explorer" && (navigator.appVersion.indexOf("MSIE 7")!=-1) || (navigator.appVersion.indexOf("MSIE 8")!=-1)) {
-    if (document.all)
-     {
-      document.all.sound.src = "click.mp3";
-     }
-    }
-    else {
-    {
-    var audio = document.getElementsByTagName("audio")[0];
-    audio.volume=0.3;
-    audio.play();
-    }
-    }
-}
+
+// const tickAudioClip=()=>{
+//   if (navigator.appName == "Microsoft Internet Explorer" && (navigator.appVersion.indexOf("MSIE 7")!=-1) || (navigator.appVersion.indexOf("MSIE 8")!=-1)) {
+//     if (document.all)
+//      {
+//       document.all.sound.src = "click.mp3";
+//      }
+//     }
+//     else {
+//     {
+//     var audio = document.getElementsByTagName("audio")[0];
+//     audio.volume=0.3;
+//     audio.play();
+//     }
+//     }
+// }
 
   const homeList = list.map((item, index) => (
-    <li key={index}  onMouseOver={tickAudioClip} onClick={tickAudioClip}>
+
+    <li key={index} className={item === '/timeline' ? 'yoyo' : null}>
       <div className="gt">&gt;&nbsp;</div>
+
       <Link to={item}>
+      <span className="menu-list">
         <Baffle speed={150} obfuscate={obfuscate.obs}>
           {item}
-        </Baffle>
+        </Baffle></span>
       </Link>
     </li>
   ));
@@ -103,7 +107,15 @@ const tickAudioClip=()=>{
     }
   };
   const onfailure = () => {
-    console.log('nopie');
+    dispatch({
+      type: 'ADD_ERROR',
+      payload: { msg: 'auth error' }
+    });
+    setTimeout(() => {
+      dispatch({
+        type: 'REMOVE_ERRORS'
+      });
+    }, 3000);
   };
 
   const logout = () => {
@@ -138,17 +150,6 @@ const tickAudioClip=()=>{
   return (
 
     <div className="Lightning">
-    <Sound
-      url="rainstorm.wav"
-      playStatus={bool}
-      // muted={true}
-      loop
-    />
-
-<audio >
-    <source src="bip.wav"></source>
-    </audio>
-
       <Loading title='home' />
       <LinesRain />
       <div className='container'>
@@ -216,7 +217,9 @@ const tickAudioClip=()=>{
           <ul className="homeList">{homeList}</ul>
         </div>
         <br />
-        <TimelineHome />
+        <div className='no-mobile'>
+          <TimelineHome />
+        </div>
         <div className='logo'>
           <img className='blueLogo' src='techLogoGlitchBlue.png' />
           <img className='redLogo' src='techLogoGlitchRed.png' />
@@ -224,7 +227,7 @@ const tickAudioClip=()=>{
         </div>
         <p className='devText'>Developed by Technobyte</p>
         <style>
-          
+
         </style>
       </div>
     </div>

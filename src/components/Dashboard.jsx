@@ -3,7 +3,10 @@ import Loading from './Loading';
 import Back from './Back';
 import Context from '../contextStore/Context';
 import axios from 'axios';
+import dateFormat from 'dateformat';
 const Dashboard = props => {
+  document.body.scroll = 'yes';
+  document.body.style.overflow = 'auto';
   const { state, dispatch } = useContext(Context);
   const [istate, setState] = useState([]);
   useEffect(() => {
@@ -23,52 +26,72 @@ const Dashboard = props => {
 
     getRegisteredEvents();
   }, []);
-  console.log(istate);
+  function time(timestamp) {
+    var myDate = new Date(timestamp);
+    var x = dateFormat(myDate, 'hh:MM');
+    return x;
+  }
+  function date(timestamp) {
+    var myDate = new Date(timestamp);
+    var x = dateFormat(myDate, "dddd, dd mmm");
+    return x;
+  }
 
+  istate.sort((x, y) => {
+    var a = new Date(x.startTime);
+    var b = new Date(y.startTime);
+      console.log("sort");
+    return a - b;
+    if (a > b) return 1;
+    if (a < b) return -1;
+    return 0;
+
+  });
+  console.log(istate);
   const eventList =
     istate.length > 0 ? (
-      istate.map(event => (
-        <div className='reg-eve'>
-          <div>
+      istate.map((event,index) => (
+        <div className='reg-eve' key={index}>
+          <div className="reg-eve-name">
             <p>{event.eventName}</p>
           </div>
           <div>
-            <p>{event.startTime}</p>
+            <p>{time(event.startTime)},  {date(event.startTime)}</p>
           </div>
         </div>
       ))
     ) : (
-      <p>fetching registered events...</p>
+      <p>no registered events.</p>
     );
-
+console.log(istate);
   const { phone, name, college, year } = state.user;
   return (
-    <>
+    <div className="dashboard">
       <Loading title='dashboard' />
-      <div className='c-container'>
+      <div className='c-container .overflow-dash'>
         <Back history={props} />
         <h1>/dashboard</h1>
         <div className='details'>
-          <h3>sudo@{name}</h3>
+          <h3>name> {name}</h3>
           <p>
-            <span className='bold'>college></span>
+            <span className='bold'>college> </span>
             {college}
           </p>
           <p>
-            <span className='bold'>phone></span>
+            <span className='bold'>phone> </span>
             {phone}
           </p>
           <p>
-            <span className='bold'>year></span>
+            <span className='bold'>year>  </span>
             {year}
           </p>
         </div>
         <div className='reg-events'>
-          <h4>registered_events:</h4>
+          <h4>@registered_events:</h4>
           {eventList}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

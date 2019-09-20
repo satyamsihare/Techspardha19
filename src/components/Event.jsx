@@ -5,6 +5,7 @@ import Loading from './Loading';
 import Typist from 'react-typist';
 import axios from 'axios';
 import Sound from 'react-sound';
+import dateFormat from 'dateformat';
 const Event = props => {
   document.body.scroll = 'yes';
   document.body.style.overflow = 'auto';
@@ -75,7 +76,7 @@ const Event = props => {
           dispatch({
             type: 'REMOVE_ERRORS'
           });
-        }, 1000);
+        }, 3000);
         const res = await axios.put(
           'https://us-central1-techspardha-87928.cloudfunctions.net/api/user/event',
           body,
@@ -93,7 +94,7 @@ const Event = props => {
           dispatch({
             type: 'REMOVE_ERRORS'
           });
-        }, 4000);
+        }, 3000);
       } catch (error) {
         dispatch({
           type: 'ADD_ERROR',
@@ -107,15 +108,24 @@ const Event = props => {
       }
     }
   };
-
+  function time(timestamp) {
+    var myDate = new Date(timestamp);
+    var x = dateFormat(myDate, 'hh:MM');
+    return x;
+  }
+  function date(timestamp) {
+    var myDate = new Date(timestamp);
+    var x = dateFormat(myDate, "dddd, dd mmm");
+    return x;
+  }
   const pause = function pausemusic() {
-    console.log('Typing finished');
     setState2('STOPPED');
   };
+
   return (
     <>
       <Sound url='../../type2.mp3' playStatus={bool} />
-      <Loading title='devs' />
+      <Loading title={event} />
       <div className='c-container'>
         <Back history={props} />
         <span>
@@ -148,7 +158,7 @@ const Event = props => {
               <h3 onClick={register} className='register'>
                 [- REGISTER -]
               </h3>
-              <p>start time: {iState.startTime}</p>
+              <p>start time: {time(iState.startTime).toString()}, {date(iState.startTime).toString()} </p>
               <p>venue: {iState.venue}</p>
               <span>
                 google_form:

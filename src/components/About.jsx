@@ -1,4 +1,4 @@
-import React, {useEffect,useRef,useLayoutEffect,useState} from 'react';
+import React, { useEffect, useRef, useLayoutEffect, useState } from 'react';
 import Typist from 'react-typist';
 import Back from './Back';
 import Loading from './Loading';
@@ -6,26 +6,21 @@ import ReactAudioPlayer from 'react-audio-player';
 import Sound from 'react-sound';
 // import Typewriter from 'typewriter-effect';
 const About = props => {
-  document.body.scroll = "yes";
+  document.body.scroll = 'yes';
   document.body.style.overflow = 'scroll';
 
-  const [bool,setState]=useState("PLAYING");
-  let flag=0;
+  const [bool, setState] = useState('PLAYING');
+  let flag = 0;
 
-  const pause=function pausemusic(){
-    console.log("Typing finished");
-    setState("STOPPED");
-  }
+  const pause = function pausemusic() {
+    setState('STOPPED');
+  };
 
   return (
     <>
-    <Sound
-      url="type2.mp3"
-      playStatus={bool}
-    />
+      <Sound url='type2.mp3' playStatus={bool} />
 
-
-    <Loading title='about' />
+      <Loading title='about' />
       <div className='c-container'>
         <Back history={props} />
         <h1>/about</h1>
@@ -34,9 +29,14 @@ const About = props => {
             startDelay={0}
             avgTypingDelay={0}
             stdTypingDelay={0}
-            cursor={{show:true, blink:true, element:'>', hideWhenDone:true }}
+            cursor={{
+              show: true,
+              blink: true,
+              element: '>',
+              hideWhenDone: true
+            }}
             onTypingDone={pause}
-           >
+          >
             <p className='about'>
               Techspardha is the annual techno-managerial festival of National
               Institute of Technology, Kurukshetra. It started in 1995 as

@@ -315,17 +315,6 @@ div {
     margin-top: 40px;
     font-size: 25px;
   }
-
-  div.horizontal-scroll-wrapper {
-  width: 1000px;
-  height: 600px;
-  margin: 0;
-  padding-top: 1px;
-  top: 20px;
-  position: absolute;
-  display: inline-block;
-  white-space: space nowrap;
-  }
 }
 
 button {

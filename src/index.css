@@ -792,85 +792,127 @@ svg {
   }
 }
 
-.sponsor{
-  position: absolute;
-  width: 100%;
-  height: 70%;
+.sectionAndImage {
+  display: flex; 
+  transition-property: opacity, background;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.sponsorImage{
-  height: 80%;
-}
-
-.spsrTitle{
+.spsrTitle {
   pointer-events: none;
-  position: relative;
-  text-transform: capitalize;
-  font-weight: 500;
-  display: flex;
-  width: 33%;
-  height: fit-content;
-  transition-property: color, background;
-  transition-duration: 0.4s;
-  transition-timing-function: cubic-bezier(0.23, 1, 0, 1);
+  width: 350px;
+  transform: translateX(10px);
+  align-self: center;
+  transition-property: font-size;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.spnsrImageDiv{
-  height: inherit;
-  display: flex;
-  width: 67%;
-  transition-property: color, background;
-  transition-duration: 0.4s;
-  transition-timing-function: cubic-bezier(0.23, 1, 0, 1);
-}
-
-.spnsrImgAndTitleSection{
-  vertical-align: middle;
-  height: 100px;
+.titleSponsor {
   font-size: 140%;
-  position: relative;
-  display: flex;
-  white-space: space nowrap;
-  overflow: auto;
-  transition-property: height, font-size;
-  transition-duration: 0.4s;
-  transition-timing-function: cubic-bezier(0.23, 1, 0, 1);
+  font-weight: 800;
+  filter: grayscale(0%);
 }
 
-.spnsrImgAndTitleSection:hover  {
-  white-space: space nowrap;
-  overflow: scroll;
+.titleSponsor img{
+  height: 180px;
+  /* padding-top: 5%;  */
+  pointer-events: none;
+}
+
+.spnsrImageDiv { 
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width:100%;
+  bottom: 50%;
+}
+
+.sponsorImage {
+  padding-top: 5%;
   height: 150px;
-  font-size: 250%;
-  margin-top:.5%;
+  margin-left: 3.8%;
+  margin-bottom: 3%;
+  transition-property: height;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
 }
 
+.titleSponsor:hover .sectionAndImage {
+  border-radius: 5px;
+  background: linear-gradient(to right, rgba(100,100,100,0.3), rgba(255,0,0,0));
+  background-size: 30%;
+  background-repeat: no-repeat;
+}
+
+.titleSponsor:hover .sponsorImage{
+  height: 240px;
+}
+.titleSponsor:hover .spsrTitle{
+  font-size: 150%;
+}
+
+.spnsrImgAndTitleSection:hover .sectionAndImage {
+  border-radius: 5px;
+  background: linear-gradient(to right, rgba(100,100,100,0.2), rgba(255,0,0,0));
+  background-size: 30%;
+  background-repeat: no-repeat;
+}
+
+.spnsrImgAndTitleSection:hover .sponsorImage{
+  height: 180px;
+}
 .spnsrImgAndTitleSection:hover .spsrTitle{
-  color: #0c0c0c;
-  background: #fff;
-  max-width: 100%;
-  height: 100%;
-  margin-right: 10px;
-  text-align: left;
+  font-size: 150%;
 }
 
-@media only screen and (max-width: 800px) {
+
+/* @media only screen and (max-width: 800px) {
 div.sponsorImage {
   height: 80%;
+  }
+} */
+.sponsor:hover .sectionAndImage:not(:hover){
+  filter: opacity(0.8);
 }
 
-  div.spnsrImgAndTitleSection {
-    font-size: 15px;
-    height: 70px;
-    margin-bottom:5%;
-    margin-right: 5px;
+@media only screen and (max-width: 600px) {
+  .sponsorImage {
+    height: 80px;
+    margin-left:8%; 
   }
-  div.spnsrImgAndTitleSection:hover, div.spnsrImgAndTitleSection:active{
-    height: 100px;
+  
+.titleSponsor img{
+  height: 120px;
+  /* padding-top: 5%;  */
+  pointer-events: none;
+  }
+
+.spnsrImgAndTitleSection:hover .sponsorImage{
+  height: 100px;
+  }
+
+.titleSponsor:hover .sponsorImage{
+  height: 150px;
+  }
+
+  .titleSponsor:hover .spsrTitle{
     font-size: 120%;
   }
 
-  div.spnsrImgAndTitleSection:not(hover){
+.spnsrImgAndTitleSection:hover .spsrTitle{
+  font-size: 120%;
+  }
+
+  .spsrTitle {
+    pointer-events: none;
+    width: 120px;
+    align-self: center;
+    margin-right:2%; 
+    transition-property: font-size;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
   }
 }
 
@@ -898,6 +940,7 @@ div.sponsorImage {
   transition-duration: 0.1s;
   transition-timing-function: ease-out; */
 }
+
 .pointer {
   text-decoration: underline;
   cursor: pointer;

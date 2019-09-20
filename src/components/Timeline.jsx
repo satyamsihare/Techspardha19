@@ -46,7 +46,7 @@ const TimelineHome = () => {
   }
   function time(timestamp) {
     var myDate = new Date(timestamp);
-    var x = dateFormat(myDate, 'hh:MM');
+    var x = dateFormat(myDate, 'hh:MM TT');
     return x;
   }
   function date(timestamp) {
@@ -94,7 +94,8 @@ const TimelineHome = () => {
               }}
             >
               <p className='timeline-content'>{event.eventName}</p>
-            </TimelineEvent>
+                <div className="timeline-dash"></div>
+              </TimelineEvent>
           </Timeline>
         ) : (
           <p></p>

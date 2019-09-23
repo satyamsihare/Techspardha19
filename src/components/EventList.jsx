@@ -7,6 +7,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Sound from 'react-sound';
 const EventList = props => {
+  document.body.scroll = 'yes';
+  document.body.style.overflow = 'auto';
   const [bool, setState1] = useState('PLAYING');
   const category = props.match.params.category;
   const { dispatch } = useContext(Context);
@@ -49,7 +51,7 @@ const EventList = props => {
         <h1>{`/${category}`}</h1>
 
         <div className='ievent-list'>
-          <ul>
+          <ul className="event-ul">
             {istate.events
               .filter(event => event.eventCategory === category)
               .map((event, index) => (

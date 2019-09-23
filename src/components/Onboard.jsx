@@ -56,6 +56,19 @@ const Onboard = props => {
       }, 3000);
     }
   };
+  let i=0,text='';
+  function name(n) {
+    while (i < n.length) {
+      if (n[i] === ' ') {
+        text += '_';
+        i++;
+      } else {
+        text += n[i];
+        i++;
+      }
+    }
+    return text;
+  }
 
   return (
     <>
@@ -63,7 +76,7 @@ const Onboard = props => {
       <div className='c-container'>
         <Back history={props} />
         <h1>/onboard</h1>
-        <h2>hey@{state.user.name}</h2>
+        <h2>hey @+{name(state.user.name)  }/</h2>
         <p>> welcome_to_techspardha/2019</p>
 
         <div className='form'>

@@ -5,6 +5,8 @@ import Context from '../contextStore/Context';
 import axios from 'axios';
 import dateFormat from 'dateformat';
 const Dashboard = props => {
+  document.body.scroll = 'yes';
+  document.body.style.overflow = 'auto';
   const { state, dispatch } = useContext(Context);
   const [istate, setState] = useState([]);
   useEffect(() => {
@@ -26,7 +28,7 @@ const Dashboard = props => {
   }, []);
   function time(timestamp) {
     var myDate = new Date(timestamp);
-    var x = dateFormat(myDate, 'hh:MM');
+    var x = dateFormat(myDate, 'hh:MM TT');
     return x;
   }
   function date(timestamp) {
@@ -34,7 +36,7 @@ const Dashboard = props => {
     var x = dateFormat(myDate, "dddd, dd mmm");
     return x;
   }
-  
+
   istate.sort((x, y) => {
     var a = new Date(x.startTime);
     var b = new Date(y.startTime);
@@ -45,11 +47,12 @@ const Dashboard = props => {
     return 0;
 
   });
+  console.log(istate);
   const eventList =
     istate.length > 0 ? (
       istate.map((event,index) => (
         <div className='reg-eve' key={index}>
-          <div>
+          <div className="reg-eve-name">
             <p>{event.eventName}</p>
           </div>
           <div>
@@ -63,32 +66,32 @@ const Dashboard = props => {
 console.log(istate);
   const { phone, name, college, year } = state.user;
   return (
-    <>
+    <div className="dashboard">
       <Loading title='dashboard' />
-      <div className='c-container'>
+      <div className='c-container .overflow-dash'>
         <Back history={props} />
         <h1>/dashboard</h1>
         <div className='details'>
-          <h3>sudo@{name}</h3>
+          <h3>name> {name}</h3>
           <p>
-            <span className='bold'>college></span>
+            <span className='bold'>college> </span>
             {college}
           </p>
           <p>
-            <span className='bold'>phone></span>
+            <span className='bold'>phone> </span>
             {phone}
           </p>
           <p>
-            <span className='bold'>year></span>
+            <span className='bold'>year>  </span>
             {year}
           </p>
         </div>
         <div className='reg-events'>
-          <h4>registered_events:</h4>
+          <h4>@registered_events:</h4>
           {eventList}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -22,6 +22,21 @@
 .reg-eve {
   display: flex;
   justify-content: space-between;
+  overflow: scroll;
+}
+
+@media (max-width:800px) {
+    div.reg-eve{
+      display:block;
+    }
+}
+
+.reg-eve-name{
+  font-size: 150%;
+}
+
+.reg-events{
+  margin-bottom: 15%;
 }
 
 .details {
@@ -81,6 +96,8 @@ body,
 html {
   margin: 0;
   padding: 0;
+  -ms-overflow-style:none;
+  -moz-ooverflow-style:none;
 }
 
 * {
@@ -117,13 +134,46 @@ body {
 
 .title-main {
   letter-spacing: 9px;
-  margin-bottom: 20px;
-  font-size: 1.5vw;
+  /* margin-bottom: 20px; */
+  /* position: absolute; */
+  font-size: 2.3vw;
+  /* top:-20%; */
+  /* left:3%; */
+  text-align: center;
+  margin-bottom: 10%;
+  margin-top: 10%;
 }
+
+
 
 .Menu {
   position: relative;
-  margin-top: 15%;
+  margin-top: 17%;
+  margin-left: 30%;
+  /* border-style: solid; */
+  padding: 0%;
+  padding-top:5%;
+}
+
+@media only screen and (max-width:800px) {
+  div.Menu{
+    /* position: absolute; */
+    /* margin-top: -60px; */
+    top:20%;
+    left:-30%;
+    /* padding-top:-30%; */
+  }
+  span.menu-list{
+    font-size: 3.2vw;
+  }
+  div.title-main{
+    margin: 0%;
+    /* margin-bottom: -20%; */
+  }
+}
+
+.menu-list{
+  font-size: 1.2vw;
 }
 
 .Menu>ul {
@@ -163,20 +213,20 @@ a {
 
 .timeline {
   overflow-y: scroll;
-  height: 80%;
-  width: 40%;
+  height: 100%;
+  width: 25%;
   position: fixed;
-  right: 0%;
-  top: 14%;
+  left:5%;
+  top: 3%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   p.devText {
     font-size: 10px;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   p.devText {
     font-size: 10px;
   }
@@ -212,6 +262,7 @@ select {
 .back {
   font-size: 1.6rem;
   margin-bottom: 20px;
+  width: fit-content;
 }
 
 .back:hover {
@@ -269,7 +320,7 @@ div {
   border: 1px solid white;
 }
 
-@media only screen and (max-width:600px) {
+@media only screen and (max-width:800px) {
   div.squares {
     padding: 270px 50px 140px 140px;
   }
@@ -390,10 +441,16 @@ button {
 
 .cnt-item {
   cursor: pointer;
+  width: fit-content;
+}
+
+.event-ul {
+  width: fit-content;
 }
 
 .about {
   font-size: 80%;
+  text-align: justify;
 }
 
 .hide-overflow {
@@ -497,7 +554,7 @@ svg {
   margin-left: 73%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   div.sudo {
     font-size: 12px;
     margin-top: -5%;
@@ -535,7 +592,7 @@ svg {
   right: 3%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   div.logo {
     right: 2%;
   }
@@ -735,91 +792,143 @@ svg {
   }
 }
 
-.sponsor{
-  position: absolute;
-  width: 100%;
-  height: 70%;
+.sectionAndImage {
+  display: flex; 
+  transition-property: opacity, background;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.sponsorImage{
-  height: 80%;
-}
-
-.spsrTitle{
+.spsrTitle {
   pointer-events: none;
-  position: relative;
-  text-transform: capitalize;
-  font-weight: 500;
-  display: flex;
-  width: 33%;
-  height: fit-content;
-  transition-property: color, background;
-  transition-duration: 0.4s;
-  transition-timing-function: cubic-bezier(0.23, 1, 0, 1);
+  width: 350px;
+  transform: translateX(10px);
+  align-self: center;
+  transition-property: font-size;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.spnsrImageDiv{
-  height: inherit;
-  display: flex;
-  width: 67%;
-  transition-property: color, background;
-  transition-duration: 0.4s;
-  transition-timing-function: cubic-bezier(0.23, 1, 0, 1);
-}
-
-.spnsrImgAndTitleSection{
-  vertical-align: middle;
-  height: 100px;
+.titleSponsor {
   font-size: 140%;
-  position: relative;
-  display: flex;
-  white-space: space nowrap;
-  overflow: auto;
-  transition-property: height, font-size;
-  transition-duration: 0.4s;
-  transition-timing-function: cubic-bezier(0.23, 1, 0, 1);
+  font-weight: 800;
+  filter: grayscale(0%);
 }
 
-.spnsrImgAndTitleSection:hover  {
-  white-space: space nowrap;
-  overflow: scroll;
+.titleSponsor img{
+  height: 180px;
+  /* padding-top: 5%;  */
+  pointer-events: none;
+}
+
+.spnsrImageDiv { 
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width:100%;
+  bottom: 50%;
+}
+
+.sponsorImage {
+  padding-top: 5%;
   height: 150px;
-  font-size: 250%;
-  margin-top:.5%;
+  margin-left: 3.8%;
+  margin-bottom: 3%;
+  transition-property: height;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
 }
 
+.titleSponsor:hover .sectionAndImage {
+  border-radius: 5px;
+  background: linear-gradient(to right, rgba(100,100,100,0.3), rgba(255,0,0,0));
+  background-size: 30%;
+  background-repeat: no-repeat;
+}
+
+.titleSponsor:hover .sponsorImage{
+  height: 240px;
+}
+.titleSponsor:hover .spsrTitle{
+  font-size: 150%;
+}
+
+.spnsrImgAndTitleSection:hover .sectionAndImage {
+  border-radius: 5px;
+  background: linear-gradient(to right, rgba(100,100,100,0.2), rgba(255,0,0,0));
+  background-size: 30%;
+  background-repeat: no-repeat;
+}
+
+.spnsrImgAndTitleSection:hover .sponsorImage{
+  height: 180px;
+}
 .spnsrImgAndTitleSection:hover .spsrTitle{
-  color: #0c0c0c;
-  background: #fff;
-  max-width: 100%;
-  height: 100%;
-  margin-right: 10px;
-  text-align: left;
+  font-size: 150%;
+}
+
+
+/* @media only screen and (max-width: 800px) {
+div.sponsorImage {
+  height: 80%;
+  }
+} */
+.sponsor:hover .sectionAndImage:not(:hover){
+  filter: opacity(0.8);
 }
 
 @media only screen and (max-width: 600px) {
-div.sponsorImage {
-  height: 80%;
-}
-
-  div.spnsrImgAndTitleSection {
-    font-size: 15px;
-    height: 70px;
-    margin-bottom:5%;
-    margin-right: 5px;
+  .sponsorImage {
+    height: 80px;
+    margin-left:8%; 
   }
-  div.spnsrImgAndTitleSection:hover, div.spnsrImgAndTitleSection:active{
-    height: 100px;
+  
+.titleSponsor img{
+  height: 120px;
+  /* padding-top: 5%;  */
+  pointer-events: none;
+  }
+
+.spnsrImgAndTitleSection:hover .sponsorImage{
+  height: 100px;
+  }
+
+.titleSponsor:hover .sponsorImage{
+  height: 150px;
+  }
+
+  .titleSponsor:hover .spsrTitle{
     font-size: 120%;
   }
 
-  div.spnsrImgAndTitleSection:not(hover){
+.spnsrImgAndTitleSection:hover .spsrTitle{
+  font-size: 120%;
+  }
+
+  .spsrTitle {
+    pointer-events: none;
+    width: 120px;
+    align-self: center;
+    margin-right:2%; 
+    transition-property: font-size;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
   }
 }
 
 
 .homeList{
   width: fit-content;
+  margin-top: 10%;
+  margin: auto;
+  /* text-align: center; */
+}
+
+@media screen and (max-width:800px){
+  ul.homeList{
+    margin-left: 0%;
+    margin-top: 15%;
+  }
 }
 
 .homeList>li{
@@ -831,6 +940,7 @@ div.sponsorImage {
   transition-duration: 0.1s;
   transition-timing-function: ease-out; */
 }
+
 .pointer {
   text-decoration: underline;
   cursor: pointer;
@@ -840,7 +950,7 @@ div.sponsorImage {
   height: 80%;
   width: 80%;
   text-align: center;
-  filter: grayscale(85%);
+  /* filter: grayscale(85%); */
 }
 
 .guest-desc {
@@ -852,27 +962,30 @@ div.sponsorImage {
   bottom: 0%;
   font-size: 14px;
   overflow: hidden;
+  text-align: justify;
 }
 
 .guest-img {
   text-align: center;
   margin-top: 5%;
   margin-bottom: auto;
-  opacity: 1;
-  transition: opacity .15s ease-in;
+  display: block;
+  opacity:1;
+  transition: opacity .25s ease-in;
 }
 
 .guest-name {
   opacity: 1;
+  display:block;
   text-align: center;
-  transition: opacity .15s ease-in;
+  transition: opacity .25s ease-in;
 }
 
 .date {
   font-size: 18px;
 }
 
-@media (max-width:600px) {
+@media (max-width:800px) {
   div.guest-card:hover .guest-desc{
     overflow: scroll;
   }
@@ -880,31 +993,38 @@ div.sponsorImage {
 
 .guest-desc {
   opacity: 0;
-  transition: opacity .15s ease-out;
+  display: none;
+  transition: opacity .25s ease-out;
 }
 
 .guest-card:hover .guest-img {
+  display: none;
   opacity: 0;
 }
 
 .guest-card:hover .guest-name {
+  display: none;
   opacity: 0;
 }
 
 .guest-card:hover .guest-desc {
+  display: block;
   opacity: 1;
   overflow: scroll;
 }
 
 .guest-card:active .guest-img {
+  display: none;
   opacity: 0;
 }
 
 .guest-card:active .guest-name {
+  display: none;
   opacity: 0;
 }
 
 .guest-card:active .guest-desc {
+  display: block;
   opacity: 1;
 }
 
@@ -937,11 +1057,11 @@ div.sponsorImage {
 
 
 .timeline-title {
-  font-size: 120%;
+  font-size: 100%;
 }
 
 .timeline-content {
-  font-size: 150%;
+  font-size: 120%;
   text-align: left;
 }
 
@@ -949,7 +1069,16 @@ div.sponsorImage {
   height: 100%;
   width: 100%;
 }
-
+/*
+.timeline-dash {
+  width: 20px;
+  height: 2px;
+  margin-left: -17.5%;
+  position: relative;
+  float: left;
+  background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,1), rgba(255,255,255,0.1));
+    background: white;
+} */
 
 .yoyo {
   display: none !important;
@@ -964,8 +1093,9 @@ div.sponsorImage {
   .timeline {
     position: absolute !important;
     left: 0 !important;
-    margin-top: 10%;
+    margin-top: 30%;
     width: 100%;
+    height: 80%;
   }
 
   .yoyo {
@@ -1022,4 +1152,10 @@ div.sponsorImage {
 .gt{
   opacity: 0;
   display: inline;
+}
+
+.query-send{
+  border-style: solid;
+  border-width: 0.1px;
+  padding: 1%;
 }

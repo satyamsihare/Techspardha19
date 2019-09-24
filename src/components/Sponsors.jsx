@@ -35,19 +35,14 @@ const Sponsors = props => {
     getSponsors();
   }, []);
 
-  
-function titleSponsor(sponsor,index){
-  if(index==0)
-  {
-    return "titleSponsor";
+  function titleSponsor(sponsor, index) {
+    if (index == 0) {
+      return 'titleSponsor';
+    } else {
+      return 'spnsrImgAndTitleSection';
+    }
   }
-  else
-  {
-    return "spnsrImgAndTitleSection";
-  }
-}
 
-  console.log(istate);
   return (
     <>
       <Loading title='sponsors' />
@@ -55,19 +50,24 @@ function titleSponsor(sponsor,index){
         <Back history={props} />
         <h1>Sponsors</h1>
 
-        <div className="sponsor">
-          {istate.sponsors
-            .map((sponsor, index) => (
-              <div key={index} className={titleSponsor(sponsor,index)}>
-                <span className="sectionAndImage">
-                <span className="spsrTitle">{sponsor.sponsorSection}</span>
-                  {sponsor.sponsors.map((url,index2) => (
-                    <span className="spnsrImageDiv"><img key={index2} className="sponsorImage" src={url.imageUrl} target={url.targetUrl}>
-                    </img></span>
-                ))}</span>
-              </div>
-            ))}
-
+        <div className='sponsor'>
+          {istate.sponsors.map((sponsor, index) => (
+            <div key={index} className={titleSponsor(sponsor, index)}>
+              <span className='sectionAndImage'>
+                <span className='spsrTitle'>{sponsor.sponsorSection}</span>
+                {sponsor.sponsors.map((url, index2) => (
+                  <span className='spnsrImageDiv'>
+                    <img
+                      key={index2}
+                      className='sponsorImage'
+                      src={url.imageUrl}
+                      target={url.targetUrl}
+                    ></img>
+                  </span>
+                ))}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </>

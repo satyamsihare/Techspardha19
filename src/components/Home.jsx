@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import Baffle from 'baffle-react';
 import { Link, Redirect } from 'react-router-dom';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import config from '../config.json';
@@ -43,34 +42,28 @@ const Home = props => {
     '/devs'
   ];
 
-
-
-// const tickAudioClip=()=>{
-//   if (navigator.appName == "Microsoft Internet Explorer" && (navigator.appVersion.indexOf("MSIE 7")!=-1) || (navigator.appVersion.indexOf("MSIE 8")!=-1)) {
-//     if (document.all)
-//      {
-//       document.all.sound.src = "click.mp3";
-//      }
-//     }
-//     else {
-//     {
-//     var audio = document.getElementsByTagName("audio")[0];
-//     audio.volume=0.3;
-//     audio.play();
-//     }
-//     }
-// }
+  // const tickAudioClip=()=>{
+  //   if (navigator.appName == "Microsoft Internet Explorer" && (navigator.appVersion.indexOf("MSIE 7")!=-1) || (navigator.appVersion.indexOf("MSIE 8")!=-1)) {
+  //     if (document.all)
+  //      {
+  //       document.all.sound.src = "click.mp3";
+  //      }
+  //     }
+  //     else {
+  //     {
+  //     var audio = document.getElementsByTagName("audio")[0];
+  //     audio.volume=0.3;
+  //     audio.play();
+  //     }
+  //     }
+  // }
 
   const homeList = list.map((item, index) => (
-
     <li key={index} className={item === '/timeline' ? 'yoyo' : null}>
-      <div className="gt">&gt;&nbsp;</div>
+      <div className='gt'>&gt;&nbsp;</div>
 
       <Link to={item}>
-      <span className="menu-list">
-        <Baffle speed={150} obfuscate={obfuscate.obs}>
-          {item}
-        </Baffle></span>
+        <span className='menu-list'>{item}</span>
       </Link>
     </li>
   ));
@@ -149,8 +142,7 @@ const Home = props => {
   }
 
   return (
-
-    <div className="Lightning">
+    <div className='Lightning'>
       <Loading title='home' />
       <LinesRain />
       <div className='container'>
@@ -209,13 +201,12 @@ const Home = props => {
         </div>
         <div className='Menu bb'>
           <div className='title-main'>
-            <Baffle speed={150} obfuscate={obfuscate.obs}>
-              TECHSPARDHA/2019
-            </Baffle>
+            <p> TECHSPARDHA/2019</p>
           </div>
-          <script>
-          </script>
-          <ul className="homeList">{homeList}</ul>
+          <div className='subb'>
+            <p>ts19:theme@SpectrumOfInnovation</p>
+          </div>
+          <ul className='homeList'>{homeList}</ul>
         </div>
         <br />
         <div className='no-mobile'>
@@ -227,9 +218,7 @@ const Home = props => {
           <img className='mainLogo' src='techLogo.png' />
         </div>
         <p className='devText'>Developed by Technobyte</p>
-        <style>
-
-        </style>
+        <style></style>
       </div>
     </div>
   );

@@ -43,14 +43,17 @@ const Dev = props => {
             istate.map((d, i) => (
               <div key={i} className='n-dev'>
                 <div className='d-img'>
-                  <img src={d.link} alt='img' />
+                  <img className='dev-img' src={d.imageUrl} alt='img' />
                 </div>
                 <div className='n-details'>
                   <div className='n-name'>
                     <p>{d.name}</p>
                   </div>
                   <div className='g-icon'>
-                    <i className='fab fa-github fa-2x'></i>
+                    <a href={d.link}>
+                      {' '}
+                      <i className='fab fa-github fa-2x'></i>
+                    </a>
                   </div>
                 </div>
               </div>
